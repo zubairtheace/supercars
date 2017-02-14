@@ -1,3 +1,84 @@
+--Git Configuration--
+
+//Enter Git User Name
+git config --global user.name "Tofy Zubair"
+
+//Enter Git Email address
+git config --global user.email "tofy.zubair@gmail.com"
+
+// Clone Git repository
+git clone https://gitlab.com/theteam2017/supercars.git
+
+___________________
+
+--installing Composer--
+
+___________________
+
+--Check for latest versions of Software--
+
+composer -v
+php -v
+
+___________________
+
+--Creating a Laravel Project Via Composer Create-Project--
+
+composer create-project --prefer-dist laravel/laravel supercars
+
+___________________
+
+--Local Development Server--
+php artisan serve
+
+___________________
+
+--Commit Changes to Master branch--
+
+// Getting initial status
+git status
+
+//Adding all files in directory
+git add .
+
+//check for status again
+git status
+
+//Commit changes and add message
+git commit -m "Laravel Message"
+
+//check for status again
+git status
+
+//push to master
+git push origin master
+
+____________________
+
+--Laravel Migration--
+//find more on : https://laravel.com/docs/5.4/migrations
+
+//create table
+$ php artisan make:migration create_cars_table
+
+//Navigate to : database>migrations to see created files
+//add fields in the "public function up()"
+
+Schema::create('cars', function (Blueprint $table) {
+    $table->increments('id');
+    $table->string('make');
+    $table->string('model');
+    $table->date('year');
+    $table->timestamps();
+  });
+}
+
+//Overwriting tables
+php artisan migrate:refresh
+
+
+
+<br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
