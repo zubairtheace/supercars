@@ -15,6 +15,8 @@ class CreateCarsTable extends Migration
     {
       Schema::create('cars', function (Blueprint $table) {
         $table->increments('id');
+        $table->integer('make_id')->unsigned();
+        $table->integer('color_id')->unsigned();
         $table->string('model');
         $table->boolean('type');
         $table->date('year');
@@ -23,8 +25,8 @@ class CreateCarsTable extends Migration
         $table->integer('mileage');
         $table->float('price', 10, 2);
         $table->text('picture');
-        $table->foreign('car_make_id')->references('id')->on('car_make');
-        $table->foreign('car_color_id')->references('id')->on('car_color');
+        $table->foreign('make_id')->references('id')->on('makes');
+        $table->foreign('color_id')->references('id')->on('colors');
         $table->timestamps();
       });
     }

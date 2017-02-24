@@ -16,14 +16,16 @@ class CreateTestDriveTable extends Migration
       Schema::create('test_drives', function (Blueprint $table) {
         $table->increments('id');
         $table->string('title');
+        $table->integer('car_id')->unsigned();
+        $table->integer('user_id')->unsigned();
         $table->string('email');
         $table->string('name');
         $table->integer('phone_number');
         $table->date('date_of_appointment');
         $table->dateTime('time_of_appointment');
         $table->text('message');
-        $table->foreign('cars_id')->references('id')->on('cars');
-        $table->foreign('users_id')->references('id')->on('users');
+        $table->foreign('car_id')->references('id')->on('cars');
+        $table->foreign('user_id')->references('id')->on('users');
         $table->timestamps();
       });
     }

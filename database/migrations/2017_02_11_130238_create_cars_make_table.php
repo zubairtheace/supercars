@@ -13,9 +13,9 @@ class CreateCarsMakeTable extends Migration
      */
     public function up()
     {
-      Schema::create('cars_makes', function (Blueprint $table) {
+      Schema::create('makes', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('car_make');
+        $table->string('make');
         $table->timestamps();
       });
     }
@@ -27,6 +27,6 @@ class CreateCarsMakeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_makes');
+        Schema::dropIfExists('makes');
     }
 }

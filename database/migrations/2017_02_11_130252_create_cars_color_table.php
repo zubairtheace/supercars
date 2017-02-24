@@ -13,9 +13,9 @@ class CreateCarsColorTable extends Migration
      */
     public function up()
     {
-      Schema::create('cars_colors', function (Blueprint $table) {
+      Schema::create('colors', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('car_color');
+        $table->string('color');
         $table->timestamps();
       });
     }
@@ -27,6 +27,6 @@ class CreateCarsColorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_colors');
+        Schema::dropIfExists('colors');
     }
 }
