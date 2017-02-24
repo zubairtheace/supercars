@@ -14,11 +14,18 @@ class CreateCarsTable extends Migration
     public function up()
     {
       Schema::create('cars', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('make');
-          $table->string('model');
-          $table->date('year');
-          $table->timestamps();
+        $table->increments('id');
+        $table->string('model');
+        $table->boolean('type');
+        $table->date('year');
+        $table->integer('engine_capacity');
+        $table->boolean('transmission');
+        $table->integer('mileage');
+        $table->float('price', 10, 2);
+        $table->text('picture');
+        $table->foreign('car_make_id')->references('id')->on('car_make');
+        $table->foreign('car_color_id')->references('id')->on('car_color');
+        $table->timestamps();
       });
     }
 
@@ -29,6 +36,6 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cars');
     }
 }
