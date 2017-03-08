@@ -18,10 +18,10 @@ class CreateCarsTable extends Migration
         $table->integer('make_id')->unsigned();
         $table->integer('color_id')->unsigned();
         $table->string('model');
-        $table->boolean('type');
+        $table->string('type');
         $table->date('year');
         $table->integer('engine_capacity');
-        $table->boolean('transmission');
+        $table->string('transmission');
         $table->integer('mileage');
         $table->float('price', 10, 2);
         $table->text('picture');

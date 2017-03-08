@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/color', 'ColorController');
 
 Route::resource('/make', 'MakeController');
+
+Route::resource('/faq', 'FaqController');
+
+Route::resource('/car', 'CarController');

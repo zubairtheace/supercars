@@ -73,10 +73,33 @@ Schema::create('cars', function (Blueprint $table) {
   });
 }
 
+//migrating tables to database
+php artisan migrate
+
 //Overwriting tables
 php artisan migrate:refresh
 
+//Removing all tables from database
+php artisan migrate:reset
+____________________
 
+--Laravel CRUD
+
+//Creating a controller with resource files
+php artisan make:controller CarController --resource
+
+//Adding views
+Create a folder "car" in the "views" folder
+Add the File:
+index.blade.php
+create.blade.php
+
+//Creating the model
+php artisan make:model Car
+
+
+//Adding a route for the controller in the web.php file in the routes folder
+Route::resource('/car', 'CarController');
 
 <br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
