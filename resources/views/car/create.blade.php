@@ -32,7 +32,7 @@
 
 
                         <!--type-->
-                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             <!--
                             <label for="type" class="col-md-4 control-label">Car Type</label>
                             <div class="col-md-3">
@@ -89,17 +89,19 @@
 
                         <!--Engine Capacity-->
                         <div class="form-group{{ $errors->has('engine_capacity') ? ' has-error' : '' }}">
-                            <label for="engine_capacity" class="col-md-4 control-label">Car engine_capacity</label>
+                          <label for="engine_capacity" class="col-md-4 control-label">Car engine_capacity</label>
+                          <div class="col-md-3">
+                            <div class="input-group">
+                              <input id="engine_capacity" type="number" step="50" min="700" max="5000"class="form-control" name="engine_capacity" value="{{ old('engine_capacity') }}" required>
+                              <span class="input-group-addon" id="basic-addon2">CC</span>
 
-                            <div class="col-md-3">
-                                <input id="engine_capacity" type="number" step="50" min="700" max="5000"class="form-control" name="engine_capacity" value="{{ old('engine_capacity') }}" required>
-
-                                @if ($errors->has('engine_capacity'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('engine_capacity') }}</strong>
-                                    </span>
-                                @endif
+                              @if ($errors->has('engine_capacity'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('engine_capacity') }}</strong>
+                                  </span>
+                              @endif
                             </div>
+                          </div>
                         </div>
 
 
@@ -129,22 +131,36 @@
 
                         <!--Mileage-->
                         <div class="form-group{{ $errors->has('mileage') ? ' has-error' : '' }}">
-                            <label for="mileage" class="col-md-4 control-label">Car Mileage</label>
+                          <label for="mileage" class="col-md-4 control-label">Car Mileage</label>
+                          <div class="col-md-3">
+                            <div class="input-group">
+                              <input id="mileage" type="number" step="1000" min="0" max="400000"class="form-control" name="mileage" value="{{ old('mileage') }}" required>
+                              <span class="input-group-addon" id="basic-addon2">Miles</span>
 
-                            <div class="col-md-3">                              
-                                <input id="mileage" type="number" step="1000" min="0" max="400000"class="form-control" name="mileage" value="{{ old('mileage') }}" required>
-
-
-
-                                @if ($errors->has('mileage'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('mileage') }}</strong>
-                                    </span>
-                                @endif
+                              @if ($errors->has('mileage'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('mileage') }}</strong>
+                                  </span>
+                              @endif
                             </div>
+                          </div>
                         </div>
 
                         <!--price-->
+                        <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                          <label for="price" class="col-md-4 control-label">Car Price</label>
+                          <div class="col-md-3">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="basic-addon2">Rs</span>
+                              <input id="price" type="number" step="1000" min="200000" max="5000000"class="form-control" name="price" value="{{ old('price') }}" required>
+                              @if ($errors->has('price'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('price') }}</strong>
+                                  </span>
+                              @endif
+                            </div>
+                          </div>
+                        </div>
 
 
                         <!--Picture-->
