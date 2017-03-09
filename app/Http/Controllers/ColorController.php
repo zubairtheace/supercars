@@ -16,7 +16,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-      return View::make('color.index');
+      $colors = Color::paginate(10);
+      return view('color.index', compact('colors'));
     }
 
     /**
@@ -56,7 +57,8 @@ class ColorController extends Controller
      */
     public function show($id)
     {
-        //
+      $color = Color::findOrFail($id);
+      return view('color.show', compact('color'));
     }
 
     /**
@@ -67,7 +69,8 @@ class ColorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $color = Color::findOrFail($id);
+        return view('color.edit', compact('color'));
     }
 
     /**
@@ -79,7 +82,14 @@ class ColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $color = Color::findOrFail($id);
+        $result = $color->update($request->all());
+        if ($result){
+          return redirect('color')->with('success', 'Color Updated');
+        }
+        else{
+          return back()->with('error','Failed to update!');
+        }
     }
 
     /**
@@ -90,8 +100,16 @@ class ColorController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $color = Color::findOrFail($id);
+      $result = $color->delete();
+      if ($result){
+        return redirect('color')->with('success', 'Color deleted');
+      }
+      else{
+        return back()->with('error','Failed to delete!');
+      }
     }
+
     protected function validator(array $data)
     {
       return Validator::make($data, [
