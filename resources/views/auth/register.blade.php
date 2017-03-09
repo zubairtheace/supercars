@@ -10,6 +10,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
+                        <!--First Name-->
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                             <label for="first_name" class="col-md-4 control-label">First Name</label>
 
@@ -24,6 +25,7 @@
                             </div>
                         </div>
 
+                        <!--Last Name-->
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <label for="last_name" class="col-md-4 control-label">Last Name</label>
 
@@ -38,6 +40,7 @@
                             </div>
                         </div>
 
+                        <!--National Identity card Number-->
                         <div class="form-group{{ $errors->has('nic') ? ' has-error' : '' }}">
                             <label for="nic" class="col-md-4 control-label">National Identity Card Number</label>
 
@@ -52,34 +55,41 @@
                             </div>
                         </div>
 
-                        <!--Gender to be added -->
-
+                        <!--Gender-->
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                          <!--
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
 
-                          <label for="nic" class="col-md-4 control-label">Gender</label>
+                            <div class="col-md-3">
+                                <label for="gender" class="col-md-4 control-label">Male <input checked="checked" name="gender" type="radio" value="male"></label>
+                            </div>
 
-                          <div class="col-md-3">
+                            <div class="col-md-3">
+                                <label for="gender" class="col-md-4 control-label">Female <input name="gender" type="radio" value="female"></label>
+                            </div>
+                            -->
+                            <div class="col-md-4 control-label">
+                                {{ Form::label('gender', 'Gender') }}
+                            </div>
 
-                            <label for="gender" class="col-md-4 control-label">Male <input checked="checked" name="gender" type="radio" value="male"></label>
+                            <div class="col-md-3">
+                                {{ Form::label('male', 'Male') }}
+                                {{ Form::radio('gender', 'male', true) }}
+                            </div>
 
+                            <div class="col-md-3">
+                                {{ Form::label('female', 'Female') }}
+                                {{ Form::radio('gender', 'female') }}
+                            </div>
 
-                          </div>
-
-                          <div class="col-md-3">
-
-                            <label for="gender" class="col-md-4 control-label">Female <input name="gender" type="radio" value="female"></label>
-
-
-                          </div>
-
-                          @if ($errors->has('gender'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('gender') }}</strong>
-                              </span>
-                          @endif
-
+                            @if ($errors->has('gender'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('gender') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
+                        <!--Date of Birth-->
                         <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                             <label for="dob" class="col-md-4 control-label">Date of Birth</label>
 
@@ -94,6 +104,7 @@
                             </div>
                         </div>
 
+                        <!--Address-->
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
@@ -108,8 +119,9 @@
                             </div>
                         </div>
 
+                        <!--Phone Number-->
                         <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                            <label for="phone_number" class="col-md-4 control-label">Mobile Phone Number</label>
+                            <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
 
                             <div class="col-md-6">
                                 <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
@@ -122,6 +134,7 @@
                             </div>
                         </div>
 
+                        <!--email-->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -136,6 +149,7 @@
                             </div>
                         </div>
 
+                        <!--Password-->
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -150,6 +164,7 @@
                             </div>
                         </div>
 
+                        <!--Confirm password-->
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
