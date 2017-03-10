@@ -14,15 +14,12 @@
                   </div>
                 </div>
                 <div class="panel-footer">
-
-                  <form class="form-horizontal" role="form" method="POST" action="{{ route('color.destroy', $color->id) }}">
-                      {{ method_field('DELETE') }}
-                      {{ csrf_field() }}
+                  {!! Form::open(['route' => ['color.destroy', $color->id], 'method' => 'delete', 'class' => 'form-horizontal']) !!}
                       <button type="submit" class="btn btn-danger">
                           Delete
                       </button>
                   </form>
-
+                  {!! Form::close() !!}
                 </div>
             </div>
         </div>
