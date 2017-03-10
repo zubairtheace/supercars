@@ -13,7 +13,7 @@
                     @forelse($faqs as $faq)
                       <tr>
                         <td>
-                          <b>question</b> {{faq->question}}
+                          <b>question</b> {{$faq->question}}
                           <div class="btn-toolbar pull-right">
                             <div class="btn-group">
                               <a href="{{ route('faq.show', $faq->id) }}" class="btn btn-primary btn-sm">View </a>

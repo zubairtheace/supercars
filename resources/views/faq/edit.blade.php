@@ -12,26 +12,58 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('faq') ? ' has-error' : '' }}">
-                            <label for="faq" class="col-md-4 control-label">Faq</label>
+
+                          @if ($errors->has('faq'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('faq') }}</strong>
+                              </span>
+                          @endif
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {!! Form::label('question','Question',
+                                array(
+                                    'class'=>'col-md-4 control-label'
+                                )) !!}
 
                             <div class="col-md-6">
-                                <input id="faq" type="text" class="form-control" name="faq" value="{{ $faq->faq }}" autofocus>
+                                {!! Form::textarea('question',$faq->question,
+                                    array(
+                                        'class'=>'form-control',
+                                        'rows'=>'3',
+                                        'required' => 'required'
+                                    )) !!}
+                            </div>
+                        </div>
 
-                                @if ($errors->has('faq'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('faq') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group">
+                            {!! Form::label('answers','Answer',
+                                array(
+                                    'class'=>'col-md-4 control-label'
+                                )) !!}
+
+                            <div class="col-md-6">
+                                {!! Form::textarea('answer',$faq->answer,
+                                    array(
+                                        'class'=>'form-control',
+                                        'rows'=>'3',
+                                        'required' => 'required'
+                                    )) !!}
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Update
-                                </button>
+                                {!! Form::submit('Update',
+                                    array(
+                                        'class' => 'btn btn-primary'
+                                    )) !!}
+
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
