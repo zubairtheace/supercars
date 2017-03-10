@@ -7,9 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Car Color</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('color.update', $color->id) }}">
-                        {{ method_field('PUT') }}
-                        {{ csrf_field() }}
+                    {!! Form::open(['route' => ['color.update', $color->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
                             <label for="color" class="col-md-4 control-label">Color</label>
@@ -32,7 +30,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
