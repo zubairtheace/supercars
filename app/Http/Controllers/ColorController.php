@@ -108,5 +108,5 @@ class ColorController extends Controller
       else{
         return back()->with('error','Failed to delete!');
       }
-    }    
+    }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use App\Make;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CreateMakeFormRequest;
 
 class MakeController extends Controller
 {
@@ -16,7 +16,8 @@ class MakeController extends Controller
      */
     public function index()
     {
-        return View::make('make.index');
+        $makes = Make::paginate(10);
+        return view('make.index', compact('makes'));
     }
 
     /**
@@ -54,7 +55,8 @@ class MakeController extends Controller
      */
     public function show($id)
     {
-        //
+        $make = Make::findOrFail($id);
+        return view('make.show', compact('make'));
     }
 
     /**
@@ -65,7 +67,8 @@ class MakeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $make = Make::findOrFail($id);
+        return view('make.edit', compact('make'));
     }
 
     /**
@@ -77,7 +80,14 @@ class MakeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $make = Make::findOrFail($id);
+        $result = $make->update($request->all());
+        if ($result){
+          return redirect('make')->with('success', 'Make Updated');
+        }
+        else{
+          return back()->with('error','Failed to update!');
+        }
     }
 
     /**
@@ -88,6 +98,13 @@ class MakeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $make = Make::findOrFail($id);
+        $result = $make->delete();
+        if ($result){
+          return redirect('make')->with('success', 'Make deleted');
+        }
+        else{
+          return back()->with('error','Failed to delete!');
+        }
     }
 }
