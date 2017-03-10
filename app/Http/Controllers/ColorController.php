@@ -108,12 +108,5 @@ class ColorController extends Controller
       else{
         return back()->with('error','Failed to delete!');
       }
-    }
-
-    protected function validator(array $data)
-    {
-      return Validator::make($data, [
-          'color' => 'required|max:32'
-      ]);
-    }
+    }    
 }

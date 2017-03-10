@@ -7,7 +7,69 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add Frequently Asked Questions</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('faq.store') }}">
+                    {!! Form::open(
+                        array(
+                            'route' => 'faq.store',
+                            'class' => 'form-horizontal',
+                            'role' => 'form',
+                            'method' => 'POST',
+                            'files' => true)) !!}
+
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        There were some problems saving this FAQ.<br />
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    <div class="form-group">
+                        {!! Form::label('question','Question',
+                            array(
+                                'class'=>'col-md-4 control-label'
+                            )) !!}
+
+                        <div class="col-md-6">
+                            {!! Form::textarea('question',null,
+                                array(
+                                    'class'=>'form-control',
+                                    'rows'=>'3',
+                                    'required' => 'required'
+                                )) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('answers','Answer',
+                            array(
+                                'class'=>'col-md-4 control-label'
+                            )) !!}
+
+                        <div class="col-md-6">
+                            {!! Form::textarea('answer',null,
+                                array(
+                                    'class'=>'form-control',
+                                    'rows'=>'3',
+                                    'required' => 'required'
+                                )) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            {!! Form::submit('Save',
+                                array(
+                                    'class' => 'btn btn-primary'
+                                )) !!}
+
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
+
+                    <!-- <form class="form-horizontal" role="form" method="POST" action="{{ route('faq.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
@@ -45,7 +107,8 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
+
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use App\Faq;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CreateFaqFormRequest;
 
 class FaqController extends Controller
 {
@@ -16,7 +16,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        return View::make('faq.index');
+        $faqs = Faq::paginate(10);
+        return view('faq.index', compact('faqs'));
     }
 
     /**
@@ -35,7 +36,8 @@ class FaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function store(CreateFaqFormRequest $request)
     {
       $result = Faq::create($request->all());
       if ($result){
@@ -54,7 +56,8 @@ class FaqController extends Controller
      */
     public function show($id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        return view('faq.show', compact('faq'));
     }
 
     /**
@@ -65,7 +68,8 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        return view('faq.edit', compact('faq'));
     }
 
     /**
@@ -77,7 +81,14 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        $result = $faq->update($request->all());
+        if ($result){
+          return redirect('faq')->with('success', 'Faq Updated');
+        }
+        else{
+          return back()->with('error','Failed to update!');
+        }
     }
 
     /**
@@ -88,6 +99,14 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        $result = $faq->delete();
+        if ($result){
+          return redirect('faq')->with('success', 'Faq deleted');
+        }
+        else{
+          return back()->with('error','Failed to delete!');
+        }
+      
     }
 }

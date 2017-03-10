@@ -164,7 +164,22 @@
 
 
                         <!--Picture-->
+                        <div class="form-group{{ $errors->has('transmission') ? ' has-error' : '' }}">
+                            <div class="col-md-4 control-label">
+                                {{ Form::label('picture', 'Car Picture') }}
+                            </div>
 
+                            <div class="col-md-6">
+                                {!! Form::file('picture', null) !!}
+                            </div>
+
+                            @if ($errors->has('picture'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('picture') }}</strong>
+                                </span>
+                            @endif
+
+                        </div>
 
 
                         <div class="form-group">
