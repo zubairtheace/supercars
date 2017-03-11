@@ -8,16 +8,16 @@
                 <div class="panel-heading">Add New Car Color</div>
                 <div class="panel-body">
                     {!! Form::open(['route' => 'color.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
-                    
+
                         <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
                             <label for="color" class="col-md-4 control-label">Color</label>
 
                             <div class="col-md-6">
-                                <input id="color" type="text" class="form-control" name="color" value="{{ old('color') }}" autofocus>
+                                <input id="color" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>
 
-                                @if ($errors->has('color'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('color') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -10,7 +10,7 @@
                 </div>
                 <div class="panel-body">
                   <div>
-                    <b>name:</b> {{$color->color}}
+                    <b>name:</b> {{$color->name}}
                   </div>
                 </div>
                 <div class="panel-footer">

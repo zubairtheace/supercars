@@ -9,6 +9,6 @@ class Make extends Model
   public $timestamps = false;
 
   protected $fillable = [
-      'make'
+      'name'
   ];
 }

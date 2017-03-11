@@ -13,11 +13,11 @@
                             <label for="color" class="col-md-4 control-label">Color</label>
 
                             <div class="col-md-6">
-                                <input id="color" type="text" class="form-control" name="color" value="{{ $color->color }}" autofocus>
+                                <input id="color" type="text" class="form-control" name="name" value="{{ $color->name }}" autofocus>
 
-                                @if ($errors->has('color'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('color') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>

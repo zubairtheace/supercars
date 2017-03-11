@@ -13,7 +13,7 @@
                     @forelse($colors as $color)
                       <tr>
                         <td>
-                          <b>name:</b> {{$color->color}}
+                          <b>name:</b> {{$color->name}}
                           <div class="btn-toolbar pull-right">
                             <div class="btn-group">
                               <a href="{{ route('color.show', $color->id) }}" class="btn btn-primary btn-sm">View </a>
