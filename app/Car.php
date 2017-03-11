@@ -9,6 +9,15 @@ class Car extends Model
   public $timestamps = false;
 
   protected $fillable = [
-      'model'
+      'make_id',
+      'color_id',
+      'model',
+      'type',
+      'year',
+      'engine_capacity',
+      'transmission',
+      'mileage',
+      'price',
+      'picture'
   ];
 }
