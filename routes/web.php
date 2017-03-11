@@ -26,3 +26,7 @@ Route::resource('/make', 'MakeController');
 Route::resource('/faq', 'FaqController');
 
 Route::resource('/car', 'CarController');
+
+Route::resource('/footer_contact_info', 'Footer_contact_infoController');
+
+Route::resource('/footer_opening_hour', 'Footer_opening_hourController');
