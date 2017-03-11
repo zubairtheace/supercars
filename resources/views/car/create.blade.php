@@ -7,10 +7,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add New Car</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('car.store') }}">
-                        {{ csrf_field() }}
+                    {!! Form::open(['route' => 'car.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
 
                         <!--Make-->
+                        <div class="form-group{{ $errors->has('make') ? ' has-error' : '' }}">
+                            <label for="make" class="col-md-4 control-label">Car make</label>
+
+                            <div class="col-md-6">
+
+                                {!! Form::select('make', App\Make::pluck('make', 'id'), null, ['placeholder' => 'Select make...', 'class' => 'form-control']); !!}
+
+                                @if ($errors->has('make'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('make') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
 
                         <!--Model-->
@@ -29,6 +42,21 @@
                         </div>
 
                         <!--Color-->
+
+                        <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
+                            <label for="color" class="col-md-4 control-label">Car color</label>
+
+                            <div class="col-md-6">
+
+                                {!! Form::select('color', App\Color::pluck('color', 'id'), null, ['placeholder' => 'Select color...', 'class' => 'form-control']); !!}
+
+                                @if ($errors->has('color'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('color') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
 
                         <!--type-->

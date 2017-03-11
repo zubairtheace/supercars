@@ -27,7 +27,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return View::make('car.create');
+        return view('car.create');
     }
 
     /**
