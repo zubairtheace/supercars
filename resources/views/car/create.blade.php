@@ -15,7 +15,7 @@
 
                             <div class="col-md-6">
 
-                                {!! Form::select('make', App\Make::pluck('make', 'id'), null, ['placeholder' => 'Select make...', 'class' => 'form-control']); !!}
+                                {!! Form::select('make', App\Make::pluck('name', 'id'), null, ['placeholder' => 'Select make...', 'class' => 'form-control']); !!}
 
                                 @if ($errors->has('make'))
                                     <span class="help-block">
@@ -48,7 +48,7 @@
 
                             <div class="col-md-6">
 
-                                {!! Form::select('color', App\Color::pluck('color', 'id'), null, ['placeholder' => 'Select color...', 'class' => 'form-control']); !!}
+                                {!! Form::select('color', App\Color::pluck('name', 'id'), null, ['placeholder' => 'Select color...', 'class' => 'form-control']); !!}
 
                                 @if ($errors->has('color'))
                                     <span class="help-block">
