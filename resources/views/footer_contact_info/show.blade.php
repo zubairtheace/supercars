@@ -12,6 +12,9 @@
                   <div>
                     <b>Phone Number:</b> {{$footer_contact_info->phone_number}}
                   </div>
+                  <div>
+                    <b>Email:</b> {{$footer_contact_info->email}}
+                  </div>
                 </div>
                 <div class="panel-footer">
 

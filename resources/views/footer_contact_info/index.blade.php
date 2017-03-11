@@ -13,7 +13,14 @@
                     @forelse($footer_contact_infos as $footer_contact_info)
                       <tr>
                         <td>
-                          <b>question</b> {{$footer_contact_info->phone_number}}
+                          <div>
+                              <div>
+                                  <b>Phone Number:</b> {{$footer_contact_info->phone_number}}
+                              </div>
+                              <div>
+                                  <b>Email:</b> {{$footer_contact_info->email}}
+                              </div>
+                          </div>
                           <div class="btn-toolbar pull-right">
                             <div class="btn-group">
                               <a href="{{ route('footer_contact_info.show', $footer_contact_info->id) }}" class="btn btn-primary btn-sm">View </a>

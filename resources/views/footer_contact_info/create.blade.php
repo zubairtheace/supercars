@@ -31,7 +31,7 @@
                             ]); !!}
 
                         <div class="col-md-6">
-                            {!! Form::number('question',null,[
+                            {!! Form::number('phone_number',null,[
                                     'class'=>'form-control',
                                     'min'=>'10000000',
                                     'max'=>'99999999',
