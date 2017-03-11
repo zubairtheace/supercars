@@ -23,43 +23,38 @@
 
 
                         <div class="form-group">
-                            {!! Form::label('question','Question',
-                                array(
+                            {!! Form::label('question','Question',[
                                     'class'=>'col-md-4 control-label'
-                                )) !!}
+                                ]); !!}
 
                             <div class="col-md-6">
-                                {!! Form::textarea('question',$faq->question,
-                                    array(
+                                {!! Form::textarea('question',$faq->question,[
                                         'class'=>'form-control',
                                         'rows'=>'3',
                                         'required' => 'required'
-                                    )) !!}
+                                    ]); !!}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('answers','Answer',
-                                array(
+                            {!! Form::label('answers','Answer',[
                                     'class'=>'col-md-4 control-label'
-                                )) !!}
+                                ]); !!}
 
                             <div class="col-md-6">
-                                {!! Form::textarea('answer',$faq->answer,
-                                    array(
+                                {!! Form::textarea('answer',$faq->answer,[
                                         'class'=>'form-control',
                                         'rows'=>'3',
                                         'required' => 'required'
-                                    )) !!}
+                                    ]); !!}
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('Update',
-                                    array(
+                                {!! Form::submit('Update',[
                                         'class' => 'btn btn-primary'
-                                    )) !!}
+                                    ]); !!}
 
                             </div>
                         </div>

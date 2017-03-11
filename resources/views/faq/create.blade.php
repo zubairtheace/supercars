@@ -7,13 +7,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add Frequently Asked Questions</div>
                 <div class="panel-body">
-                    {!! Form::open(
-                        array(
+                    {!! Form::open([
                             'route' => 'faq.store',
                             'class' => 'form-horizontal',
                             'role' => 'form',
                             'method' => 'POST',
-                            'files' => true)) !!}
+                            'files' => true
+                            ]) !!}
 
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -27,43 +27,38 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('question','Question',
-                            array(
+                        {!! Form::label('question','Question',[
                                 'class'=>'col-md-4 control-label'
-                            )) !!}
+                            ]); !!}
 
                         <div class="col-md-6">
-                            {!! Form::textarea('question',null,
-                                array(
+                            {!! Form::textarea('question',null,[
                                     'class'=>'form-control',
                                     'rows'=>'3',
                                     'required' => 'required'
-                                )) !!}
+                                ]); !!}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('answers','Answer',
-                            array(
+                        {!! Form::label('answers','Answer',[
                                 'class'=>'col-md-4 control-label'
-                            )) !!}
+                            ]); !!}
 
                         <div class="col-md-6">
-                            {!! Form::textarea('answer',null,
-                                array(
+                            {!! Form::textarea('answer',null,[
                                     'class'=>'form-control',
                                     'rows'=>'3',
                                     'required' => 'required'
-                                )) !!}
+                                ]); !!}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
-                            {!! Form::submit('Save',
-                                array(
+                            {!! Form::submit('Save',[
                                     'class' => 'btn btn-primary'
-                                )) !!}
+                                ]); !!}
 
                         </div>
                     </div>

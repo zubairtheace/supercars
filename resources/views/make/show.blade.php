@@ -14,7 +14,12 @@
                   </div>
                 </div>
                 <div class="panel-footer">
-                  {!! Form::open(['route' => ['make.destroy', $make->id], 'method' => 'delete', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open([
+                      'route' => ['make.destroy', $make->id],
+                      'method' => 'delete',
+                      'class' => 'form-horizontal'
+                    ]) !!}
+                    
                       <button type="submit" class="btn btn-danger">
                           Delete
                       </button>

@@ -7,12 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Car Make</div>
                 <div class="panel-body">
-                    {!! Form::open(
-                        array(
+                    {!! Form::open([
                             'route' => ['make.update', $make->id],
                             'class' => 'form-horizontal',
                             'role' => 'form',
-                            'method' => 'put')) !!}
+                            'method' => 'put'
+                            ]) !!}
 
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -26,27 +26,24 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('make','Car Make',
-                            array(
+                        {!! Form::label('make','Car Make',[
                                 'class'=>'col-md-4 control-label'
-                            )) !!}
+                            ]); !!}
 
                         <div class="col-md-6">
-                            {!! Form::text('make',$make->make,
-                                array(
+                            {!! Form::text('make',$make->make,[
                                     'class'=>'form-control',
                                     'required' => 'required',
                                     'autofocus' => 'autofocus'
-                                )) !!}
+                                ]); !!}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
-                            {!! Form::submit('Save',
-                                array(
+                            {!! Form::submit('Save',[
                                     'class' => 'btn btn-primary'
-                                )) !!}
+                                ]); !!}
 
                         </div>
                     </div>
