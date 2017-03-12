@@ -11,27 +11,28 @@
                         {{ method_field('PUT') }}
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('footer_contact_info') ? ' has-error' : '' }}">
 
-                          @if ($errors->has('footer_contact_info'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('footer_contact_info') }}</strong>
-                              </span>
-                          @endif
-
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            There were some problems saving the Footer Contact Information.<br />
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                        @endif
+
 
 
                         <div class="form-group">
-                            {!! Form::label('phone_number','Phone Number',[
+                            {!! Form::label('phone_number','Mobile Phone Number',[
                                     'class'=>'col-md-4 control-label'
                                 ]); !!}
 
-                            <div class="col-md-6">
-                                {!! Form::number('question',null,[
+                            <div class="col-md-3">
+                                {!! Form::number('phone_number',$footer_contact_info->phone_number,[
                                         'class'=>'form-control',
-                                        'min'=>'10000000',
-                                        'max'=>'99999999',
                                         'required' => 'required'
                                     ]); !!}
                             </div>
@@ -43,12 +44,13 @@
                                 ]); !!}
 
                             <div class="col-md-6">
-                                {!! Form::text('email',null,[
+                                {!! Form::text('email',$footer_contact_info->email,[
                                         'class'=>'form-control',
                                         'required' => 'required'
                                     ]); !!}
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

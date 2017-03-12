@@ -19,22 +19,20 @@
                         There were some problems saving the Footer Contact Information.<br />
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li></li>
+                                <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('phone_number','Phone Number',[
+                        {!! Form::label('phone_number','Mobile Phone Number',[
                                 'class'=>'col-md-4 control-label'
                             ]); !!}
 
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             {!! Form::number('phone_number',null,[
                                     'class'=>'form-control',
-                                    'min'=>'10000000',
-                                    'max'=>'99999999',
                                     'required' => 'required'
                                 ]); !!}
                         </div>

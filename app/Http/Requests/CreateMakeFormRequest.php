@@ -24,7 +24,7 @@ class CreateMakeFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'make' => 'required'
+            'make' => 'required|min:2'
         ];
     }
 }

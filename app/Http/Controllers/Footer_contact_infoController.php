@@ -36,7 +36,7 @@ class Footer_contact_infoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFooter_contact_infoFormRequest $request)
     {
         $result = Footer_contact_info::create($request->all());
         if ($result){
@@ -78,7 +78,7 @@ class Footer_contact_infoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateFooter_contact_infoFormRequest $request, $id)
     {
         $footer_contact_info = Footer_contact_info::findOrFail($id);
         $result = $footer_contact_info->update($request->all());
