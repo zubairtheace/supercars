@@ -31,6 +31,15 @@ ___________________
 --Local Development Server--
 php artisan serve
 
+//serve to a specific ip and port
+php artisan serve --host 192.168.100.6 --port 80
+
+___________________
+
+--Pull from Master branch--
+
+// pull request
+git pull
 ___________________
 
 --Commit Changes to Master branch--
@@ -64,15 +73,6 @@ $ php artisan make:migration create_cars_table
 //Navigate to : database>migrations to see created files
 //add fields in the "public function up()"
 
-Schema::create('cars', function (Blueprint $table) {
-    $table->increments('id');
-    $table->string('make');
-    $table->string('model');
-    $table->date('year');
-    $table->timestamps();
-  });
-}
-
 //migrating tables to database
 php artisan migrate
 
@@ -83,23 +83,96 @@ php artisan migrate:refresh
 php artisan migrate:reset
 ____________________
 
---Laravel CRUD
+--Laravel Collective--
+
+//Use laravelcollective to create forms etc...
+composer require laravelcollective/html
+
+//Add to config/app.php in the providers array
+Collective\Html\HtmlServiceProvider::class,
+
+//Add to config/app.php in the aliases array
+'Form' => Collective\Html\FormFacade::class
+____________________
+
+--Laravel CRUD--
 
 //Creating a controller with resource files
 php artisan make:controller CarController --resource
 
-//Adding views
-Create a folder "car" in the "views" folder
-Add the File:
-index.blade.php
-create.blade.php
-
 //Creating the model
 php artisan make:model Car
 
-
 //Adding a route for the controller in the web.php file in the routes folder
 Route::resource('/car', 'CarController');
+
+//Adding views
+Create a folder "car" in the "views" folder
+Add the File:
+create.blade.php
+edit.blade.php
+index.blade.php
+show.blade.php
+
+____________________
+
+--Validation of forms--
+
+//Adding a Request
+php artisan make:request CreateCategoryFormRequest
+
+//change authorize to true
+public function authorize()
+{
+    return true;
+}
+
+//add required rules
+return [
+      'car_name' => 'required'
+    ];
+
+//In the Controller update the store action to accept a $request object of type CreateCarFormRequest
+public function store(CreateCarFormRequest $request)
+{
+    ...
+}
+
+//In the Controller update the update action to accept a $request object of type CreateCarFormRequest
+public function update(CreateCarFormRequest $request)
+{
+    ...
+}
+
+____________________
+--Important Links--
+//Creating and Validating a Laravel 5 Form: The Definitive Guide
+http://www.easylaravelbook.com/blog/2015/08/17/creating-and-validating-a-laravel-5-form-the-definitive-guide/
+
+//default error messages used by the validator class in laravelcollective
+https://github.com/LaravelCollective/laravelcollective.com/blob/master/resources/lang/en/validation.php
+
+//Form Category
+http://laravel-recipes.com/categories/21
+
+//Dynamically Populating a Laravel Dropdown Box
+http://www.easylaravelbook.com/blog/2015/03/30/dynamically-populating-a-laravel-dropdown-box/
+
+//LaravelCollective documentation
+https://laravelcollective.com/docs/5.3/html
+
+//Create Form Elements Using Laravel and Bootstrap
+http://vegibit.com/create-form-elements-using-laravel-and-bootstrap/
+
+//Processing File Uploads With Laravel 5
+http://www.easylaravelbook.com/blog/2015/04/08/processing-file-uploads-with-laravel-5/
+
+//Laravel Form Requests and Custom Error Messages
+http://www.easylaravelbook.com/blog/2015/03/10/laravel-form-requests-and-custom-error-messages/
+
+//Creating a Contact Form in Laravel 5 Using the Form Request Feature
+http://www.easylaravelbook.com/blog/2015/02/09/creating-a-contact-form-in-laravel-5-using-the-form-request-feature/
+____________________
 
 <br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>

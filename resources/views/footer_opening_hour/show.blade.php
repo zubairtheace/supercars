@@ -13,13 +13,13 @@
                         <b>Week days:</b> {{$footer_opening_hour->week_day}}
                     </div>
                     <div>
-                        <b>Week days Opening Hours</b> {{$footer_opening_hour->week_time}}
+                        <b>Week days Opening Hours:</b> {{$footer_opening_hour->week_time}}
                     </div>
                     <div>
                         <b>Week End days:</b> {{$footer_opening_hour->week_end_day}}
                     </div>
                     <div>
-                        <b>Week End days Opening Hours</b> {{$footer_opening_hour->week_end_time}}
+                        <b>Week End days Opening Hours:</b> {{$footer_opening_hour->week_end_time}}
                     </div>
                 </div>
                 <div class="panel-footer">
