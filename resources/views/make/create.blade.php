@@ -27,12 +27,12 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('make', 'Car Make',[
+                        {!! Form::label('name', 'Car Make',[
                             'class' => 'col-md-4 control-label'
                             ]); !!}
 
                         <div class="col-md-6">
-                            {!! Form::text('make',null,[
+                            {!! Form::text('name',null,[
                                     'class'=>'form-control',
                                     'required' => 'required'
                                 ]); !!}

@@ -10,7 +10,7 @@
                 </div>
                 <div class="panel-body">
                   <div>
-                    <b>name:</b> {{$make->make}}
+                    <b>name:</b> {{$make->name}}
                   </div>
                 </div>
                 <div class="panel-footer">
@@ -19,7 +19,7 @@
                       'method' => 'delete',
                       'class' => 'form-horizontal'
                     ]) !!}
-                    
+
                       <button type="submit" class="btn btn-danger">
                           Delete
                       </button>

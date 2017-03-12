@@ -19,7 +19,7 @@ class CreateCarsTable extends Migration
         $table->integer('color_id')->unsigned();
         $table->string('model');
         $table->string('type');
-        $table->date('year');
+        $table->integer('year');
         $table->integer('engine_capacity');
         $table->string('transmission');
         $table->integer('mileage');

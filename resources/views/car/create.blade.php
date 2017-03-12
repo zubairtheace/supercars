@@ -10,16 +10,16 @@
                     {!! Form::open(['route' => 'car.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
 
                         <!--Make-->
-                        <div class="form-group{{ $errors->has('make') ? ' has-error' : '' }}">
-                            <label for="make" class="col-md-4 control-label">Car make</label>
+                        <div class="form-group{{ $errors->has('make_id') ? ' has-error' : '' }}">
+                            <label for="make_id" class="col-md-4 control-label">Car make</label>
 
                             <div class="col-md-6">
 
-                                {!! Form::select('make', App\Make::pluck('make', 'id'), null, ['placeholder' => 'Select make...', 'class' => 'form-control']); !!}
+                                {!! Form::select('make_id', App\Make::pluck('name', 'id'), null, ['placeholder' => 'Select make...', 'class' => 'form-control']); !!}
 
-                                @if ($errors->has('make'))
+                                @if ($errors->has('make_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('make') }}</strong>
+                                        <strong>{{ $errors->first('make_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -43,16 +43,16 @@
 
                         <!--Color-->
 
-                        <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
-                            <label for="color" class="col-md-4 control-label">Car color</label>
+                        <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
+                            <label for="color_id" class="col-md-4 control-label">Car color</label>
 
                             <div class="col-md-6">
 
-                                {!! Form::select('color', App\Color::pluck('color', 'id'), null, ['placeholder' => 'Select color...', 'class' => 'form-control']); !!}
+                                {!! Form::select('color_id', App\Color::pluck('name', 'id'), null, ['placeholder' => 'Select color...', 'class' => 'form-control']); !!}
 
-                                @if ($errors->has('color'))
+                                @if ($errors->has('color_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('color') }}</strong>
+                                        <strong>{{ $errors->first('color_id') }}</strong>
                                     </span>
                                 @endif
                             </div>

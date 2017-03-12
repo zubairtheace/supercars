@@ -13,7 +13,7 @@
                     @forelse($makes as $make)
                       <tr>
                         <td>
-                          <b>name:</b> {{$make->make}}
+                          <b>name:</b> {{$make->name}}
                           <div class="btn-toolbar pull-right">
                             <div class="btn-group">
                               <a href="{{ route('make.show', $make->id) }}" class="btn btn-primary btn-sm">View </a>
