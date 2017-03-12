@@ -37,7 +37,7 @@ class MakeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMakeFormRequest $request)
     {
       $result = Make::create($request->all());
       if ($result){

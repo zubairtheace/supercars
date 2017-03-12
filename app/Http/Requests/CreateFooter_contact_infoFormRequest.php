@@ -13,7 +13,7 @@ class CreateFooter_contact_infoFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class CreateFooter_contact_infoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'phone_number' => 'required|numeric|digits:8',
+            'email' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'phone_number.required' => 'Please provide a Phone Number',
+            'email.required' => 'Please provide an Email Address',
+            'phone_number.digits' => 'Mobile Phone Number should be 8 digits',
+            'phone_number.numeric' => 'Phone Number is a number'
         ];
     }
 }

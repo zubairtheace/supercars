@@ -13,7 +13,7 @@ class CreateFooter_opening_hourFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CreateFooter_opening_hourFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'week_day' => 'required',
+            'week_time' => 'required',
+            'week_end_day' => 'required',
+            'week_end_time' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'week_day.required' => 'Please provide Week Days',
+            'week_time.required' => 'Please provide Opening Hours for Week Days',
+            'week_end_day.required' => 'Please provide Week End Days',
+            'week_end_time.required' => 'Please provide Opening Hours for Week End Days',
         ];
     }
 }

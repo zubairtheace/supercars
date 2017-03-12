@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use View;
+use App\Footer_opening_hour;
+use App\Http\Requests\CreateFooter_opening_hourFormRequest;
+
 
 class Footer_opening_hourController extends Controller
 {
@@ -13,7 +17,8 @@ class Footer_opening_hourController extends Controller
      */
     public function index()
     {
-        //
+        $footer_opening_hours = Footer_opening_hour::paginate(10);
+        return view('footer_opening_hour.index', compact('footer_opening_hours'));
     }
 
     /**
@@ -23,7 +28,7 @@ class Footer_opening_hourController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('footer_opening_hour.create');
     }
 
     /**
@@ -32,9 +37,15 @@ class Footer_opening_hourController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFooter_opening_hourFormRequest $request)
     {
-        //
+        $result = Footer_opening_hour::create($request->all());
+        if ($result){
+          return redirect('footer_opening_hour')->with('success', 'Opening Hours Added');
+        }
+        else{
+          return back()->with('error','Failed to save!');
+        }
     }
 
     /**
@@ -45,7 +56,8 @@ class Footer_opening_hourController extends Controller
      */
     public function show($id)
     {
-        //
+        $footer_opening_hour = Footer_opening_hour::findOrFail($id);
+        return view('footer_opening_hour.show', compact('footer_opening_hour'));
     }
 
     /**
@@ -56,7 +68,8 @@ class Footer_opening_hourController extends Controller
      */
     public function edit($id)
     {
-        //
+        $footer_opening_hour = Footer_opening_hour::findOrFail($id);
+        return view('footer_opening_hour.edit', compact('footer_opening_hour'));
     }
 
     /**
@@ -66,9 +79,16 @@ class Footer_opening_hourController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateFooter_opening_hourFormRequest $request, $id)
     {
-        //
+        $footer_opening_hour = Footer_opening_hour::findOrFail($id);
+        $result = $footer_opening_hour->update($request->all());
+        if ($result){
+          return redirect('footer_opening_hour')->with('success', 'Opening Hours Updated');
+        }
+        else{
+          return back()->with('error','Failed to update!');
+        }
     }
 
     /**
@@ -79,6 +99,13 @@ class Footer_opening_hourController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $footer_opening_hour = Footer_opening_hour::findOrFail($id);
+        $result = $footer_opening_hour->delete();
+        if ($result){
+          return redirect('footer_opening_hour')->with('success', 'Opening Hours deleted');
+        }
+        else{
+          return back()->with('error','Failed to delete!');
+        }
     }
 }
