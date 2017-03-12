@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Management;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
-use App\Color;
+use App\Car;
 use Illuminate\Support\Facades\Validator;
 
-class ColorController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-      $colors = Color::paginate(10);
-      return view('color.index', compact('colors'));
+      $cars = Car::paginate(10);
+      return view('car.index', compact('cars'));
     }
 
     /**
@@ -27,7 +28,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        return View::make('color.create');
+        return view('car.create');
     }
 
     /**
@@ -38,15 +39,13 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        $result = Color::create($request->all());
-        if ($result){
-          return redirect('color')->with('success', 'Color Added');
-        }
-        else{
-          return back()->with('error','Failed to save!');
-        }
-
+      $result = Car::create($request->all());
+      if ($result){
+        return redirect('management\car')->with('success', 'Car Added');
+      }
+      else{
+        return back()->with('error','Failed to save!');
+      }
     }
 
     /**
@@ -57,8 +56,8 @@ class ColorController extends Controller
      */
     public function show($id)
     {
-      $color = Color::findOrFail($id);
-      return view('color.show', compact('color'));
+        $car = Car::findOrFail($id);
+        return view('car.show', compact('car'));
     }
 
     /**
@@ -69,8 +68,7 @@ class ColorController extends Controller
      */
     public function edit($id)
     {
-        $color = Color::findOrFail($id);
-        return view('color.edit', compact('color'));
+        //
     }
 
     /**
@@ -82,14 +80,7 @@ class ColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $color = Color::findOrFail($id);
-        $result = $color->update($request->all());
-        if ($result){
-          return redirect('color')->with('success', 'Color Updated');
-        }
-        else{
-          return back()->with('error','Failed to update!');
-        }
+        //
     }
 
     /**
@@ -100,13 +91,6 @@ class ColorController extends Controller
      */
     public function destroy($id)
     {
-      $color = Color::findOrFail($id);
-      $result = $color->delete();
-      if ($result){
-        return redirect('color')->with('success', 'Color deleted');
-      }
-      else{
-        return back()->with('error','Failed to delete!');
-      }
+        //
     }
 }

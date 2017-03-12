@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Management;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
 use App\Make;
@@ -40,7 +41,7 @@ class MakeController extends Controller
     {
       $result = Make::create($request->all());
       if ($result){
-        return redirect('make')->with('success', 'Car Make Added');
+        return redirect('management\make')->with('success', 'Car Make Added');
       }
       else{
         return back()->with('error','Failed to save!');
@@ -83,7 +84,7 @@ class MakeController extends Controller
         $make = Make::findOrFail($id);
         $result = $make->update($request->all());
         if ($result){
-          return redirect('make')->with('success', 'Make Updated');
+          return redirect('management\make')->with('success', 'Make Updated');
         }
         else{
           return back()->with('error','Failed to update!');
@@ -101,7 +102,7 @@ class MakeController extends Controller
         $make = Make::findOrFail($id);
         $result = $make->delete();
         if ($result){
-          return redirect('make')->with('success', 'Make deleted');
+          return redirect('management\make')->with('success', 'Make deleted');
         }
         else{
           return back()->with('error','Failed to delete!');

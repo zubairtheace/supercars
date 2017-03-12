@@ -19,13 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/color', 'ColorController');
+Route::resource('/management/color', 'Management\ColorController');
 
-Route::resource('/make', 'MakeController');
+Route::resource('/management/make', 'Management\MakeController');
 
-Route::resource('/faq', 'FaqController');
+Route::resource('/management/faq', 'Management\FaqController');
 
-Route::resource('/car', 'CarController');
+Route::resource('/management/car', 'Management\CarController');
 
 Route::resource('/footer_contact_info', 'Footer_contact_infoController');
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Management;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
 use App\Faq;
@@ -41,7 +42,7 @@ class FaqController extends Controller
     {
       $result = Faq::create($request->all());
       if ($result){
-        return redirect('faq')->with('success', 'Faq Added');
+        return redirect('management\faq')->with('success', 'Faq Added');
       }
       else{
         return back()->with('error','Failed to save!');
@@ -84,7 +85,7 @@ class FaqController extends Controller
         $faq = Faq::findOrFail($id);
         $result = $faq->update($request->all());
         if ($result){
-          return redirect('faq')->with('success', 'Faq Updated');
+          return redirect('management\faq')->with('success', 'Faq Updated');
         }
         else{
           return back()->with('error','Failed to update!');
@@ -102,11 +103,11 @@ class FaqController extends Controller
         $faq = Faq::findOrFail($id);
         $result = $faq->delete();
         if ($result){
-          return redirect('faq')->with('success', 'Faq deleted');
+          return redirect('management\faq')->with('success', 'Faq deleted');
         }
         else{
           return back()->with('error','Failed to delete!');
         }
-      
+
     }
 }
