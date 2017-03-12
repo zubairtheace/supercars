@@ -40,10 +40,10 @@ class CarController extends Controller
     public function store(Request $request)
     {
       $result = Car::create($request->all());
-      if ($result){
+      if ($result) {
         return redirect('management\car')->with('success', 'Car Added');
       }
-      else{
+      else {
         return back()->with('error','Failed to save!');
       }
     }

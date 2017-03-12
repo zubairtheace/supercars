@@ -79,7 +79,7 @@ class MakeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateMakeFormRequest $request, $id)
     {
         $make = Make::findOrFail($id);
         $result = $make->update($request->all());

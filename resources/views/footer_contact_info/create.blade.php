@@ -26,9 +26,13 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::label('phone_number','Mobile Phone Number',[
-                                'class'=>'col-md-4 control-label'
-                            ]); !!}
+                        {!! Form::label(
+                                'phone_number',
+                                'Mobile Phone Number',
+                                [
+                                    'class'=>'col-md-4 control-label'
+                                ]
+                                ); !!}
 
                         <div class="col-md-3">
                             {!! Form::number('phone_number',null,[
