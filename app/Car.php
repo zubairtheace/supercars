@@ -20,4 +20,12 @@ class Car extends Model
       'price',
       'picture'
   ];
+
+  public function color(){
+    return $this->hasOne('App\Color', 'id');
+  }
+
+  public function make(){
+    return $this->hasOne('App\Make', 'id');
+  }
 }

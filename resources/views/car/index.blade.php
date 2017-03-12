@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Frequently Asked Questions
+                <div class="panel-heading">Cars
                   <a href="{{ route('car.create') }}" class="btn btn-primary btn-sm pull-right">Add </a>
                 </div>
                 <div class="panel-body">
@@ -13,7 +13,9 @@
                     @forelse($cars as $car)
                       <tr>
                         <td>
-                          <b>question</b> {{$car->car}}
+                          <p><b>Model:</b> {{$car->model}}</p>
+                          <p><b>Year:</b> {{$car->year}}</p>
+                          <p><b>Engine Capacity:</b> {{$car->engine_capacity}}cc</p>
                           <div class="btn-toolbar pull-right">
                             <div class="btn-group">
                               <a href="{{ route('car.show', $car->id) }}" class="btn btn-primary btn-sm">View </a>
