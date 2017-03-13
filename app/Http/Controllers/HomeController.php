@@ -25,4 +25,24 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function ourcars()
+    {
+        return view('our-cars');
+    }
+
+    public function contactus()
+    {
+        return view('contact-us');
+    }
+
+    public function frequentlyaskedquestions()
+    {
+        return view('frequently-asked-questions');
+    }
+
+    public function admin()
+    {
+        return view('admin');
+    }
 }

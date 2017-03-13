@@ -12,12 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/our-cars', 'HomeController@ourcars');
+
+Route::get('/contact-us', 'HomeController@contactus');
+
+Route::get('/frequently-asked-questions', 'HomeController@frequentlyaskedquestions');
+
+Route::get('/admin', 'HomeController@admin');
 
 Route::resource('/management/color', 'Management\ColorController');
 

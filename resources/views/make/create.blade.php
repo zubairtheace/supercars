@@ -26,17 +26,28 @@
                     </div>
                     @endif
 
-                    <div class="form-group">
-                        {!! Form::label('name', 'Car Make',[
-                            'class' => 'col-md-4 control-label'
-                            ]); !!}
-
-                        <div class="col-md-6">
-                            {!! Form::text('name',null,[
-                                    'class'=>'form-control',
-                                    'required' => 'required'
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="row">
+                            {!! Form::label('name', 'Name',[
+                                'class' => 'col-md-4 control-label'
                                 ]); !!}
+
+                            <div class="col-md-6">
+                                {!! Form::text('name',old('name'),[
+                                        'class'=>'form-control',
+                                        'required' => 'required'
+                                    ]); !!}
+                            </div>
                         </div>
+                        @if ($errors->has('name'))
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                            </div>
+                        </div>
+                        @endif
                     </div>
 
                     <div class="form-group">
