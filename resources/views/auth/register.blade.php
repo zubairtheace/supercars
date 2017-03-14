@@ -18,7 +18,7 @@
                     <!--First Name-->
 
                     <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'first_name',
                                     'First Name',
@@ -41,7 +41,7 @@
                         </div>
 
                         @if ($errors->has('first_name'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -53,7 +53,7 @@
 
                     <!--Last Name-->
                     <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'last_name',
                                     'Last Name',
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         @if ($errors->has('last_name'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
@@ -86,7 +86,7 @@
 
                     <!--National Identity card Number-->
                     <div class="form-group{{ $errors->has('nic') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'nic',
                                     'National Identity Card Number',
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         @if ($errors->has('nic'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('nic') }}</strong>
@@ -120,48 +120,55 @@
                     <!--Gender-->
                     <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
 
-                        <div class="col-md-4 control-label">
-                            {!! Form::label(
-                                    'gender',
-                                    'Gender'
-                                ); !!}
-                        </div>
+                        <div class="container-fluid">
 
-                        <div class="col-md-2">
-                            {!! Form::label(
-                                    'male',
-                                    'Male'
-                                ); !!}
+                            <div class="col-md-4 control-label">
+                                {!! Form::label(
+                                        'gender',
+                                        'Gender'
+                                    ); !!}
+                            </div>
 
-                            {!! Form::radio(
-                                    'gender',
-                                    'male',
-                                    true
-                                ); !!}
-                        </div>
+                            <div class="col-md-2">
+                                {!! Form::label(
+                                        'male',
+                                        'Male'
+                                    ); !!}
 
-                        <div class="col-md-2">
-                            {!! Form::label(
-                                    'female',
-                                    'Female'
-                                ); !!}
+                                {!! Form::radio(
+                                        'gender',
+                                        'male',
+                                        true
+                                    ); !!}
+                            </div>
 
-                            {!! Form::radio(
-                                    'gender',
-                                    'female'
-                                ); !!}
+                            <div class="col-md-2">
+                                {!! Form::label(
+                                        'female',
+                                        'Female'
+                                    ); !!}
+
+                                {!! Form::radio(
+                                        'gender',
+                                        'female'
+                                    ); !!}
+                            </div>
                         </div>
 
                         @if ($errors->has('gender'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('gender') }}</strong>
-                            </span>
+                        <div class="container-fluid">
+                            <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                            </div>
+                        </div>
                         @endif
                     </div>
 
                     <!--Date of Birth-->
                     <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'dob',
                                     'Date of Birth',
@@ -181,7 +188,7 @@
                             </div>
                         </div>
                         @if ($errors->has('dob'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('dob') }}</strong>
@@ -193,7 +200,7 @@
 
                     <!--Address-->
                     <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'address',
                                     'Address',
@@ -215,7 +222,7 @@
                             </div>
                         </div>
                         @if ($errors->has('address'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -227,7 +234,7 @@
 
                     <!--Phone Number-->
                     <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'phone_number',
                                     'Mobile Phone Number',
@@ -248,7 +255,7 @@
                             </div>
                         </div>
                         @if ($errors->has('phone_number'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phone_number') }}</strong>
@@ -260,7 +267,7 @@
 
                     <!--email-->
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'email',
                                     'E-mail Address',
@@ -281,7 +288,7 @@
                             </div>
                         </div>
                         @if ($errors->has('email'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -293,7 +300,7 @@
 
                     <!--Password-->
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'password',
                                     'Password',
@@ -313,7 +320,7 @@
                             </div>
                         </div>
                         @if ($errors->has('password'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -325,7 +332,7 @@
 
                     <!--Confirm password-->
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label(
                                     'password-confirm',
                                     'Confirm Password',

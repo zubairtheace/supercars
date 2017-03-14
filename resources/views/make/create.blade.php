@@ -15,19 +15,9 @@
                       'method' => 'POST',
                       ]) !!}
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        There were some problems saving this Make.<br />
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <div class="row">
+                        <div class="container-fluid">
                             {!! Form::label('name', 'Name',[
                                 'class' => 'col-md-4 control-label'
                                 ]); !!}
@@ -40,7 +30,7 @@
                             </div>
                         </div>
                         @if ($errors->has('name'))
-                        <div class="row">
+                        <div class="container-fluid">
                             <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
