@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
 use App\Car;
+use Image;
 use Illuminate\Support\Facades\Validator;
 
 class CarController extends Controller
@@ -39,7 +40,26 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-      $result = Car::create($request->all());
+      $this->validate($request, [
+          'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      ]);
+
+      //dd($request);
+      //image processing
+      $image = $request->file('picture');
+      $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+      $destinationPath = public_path('/library/thumbnails');
+      $img = Image::make($image->getRealPath());
+      $img->resize(100, 100, function ($constraint) {
+  		    $constraint->aspectRatio();
+  		})->save($destinationPath.'/'.$input['imagename']);
+      $destinationPath = public_path('/library/images');
+      $image->move($destinationPath, $input['imagename']);
+      // $this->postImage->add($input);
+
+      // dd($input['imagename']);
+
+      $result = Car::create(array_merge($request->all(), ['picture' => $input['imagename']]));
       if ($result) {
         return redirect('management\car')->with('success', 'Car Added');
       }
