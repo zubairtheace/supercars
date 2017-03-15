@@ -384,7 +384,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                {!! Form::file('picture', null) !!}
+                                {!! Form::file('picture', array('class' => 'image')) !!}
                             </div>
 
                             @if ($errors->has('picture'))
