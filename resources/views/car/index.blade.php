@@ -13,6 +13,7 @@
                     @forelse($cars as $car)
                       <tr>
                         <td>
+                          <p><img src="/library/thumbnails/{{$car->picture}}" /></p>
                           <p><b>Model:</b> {{$car->model}}</p>
                           <p><b>Year:</b> {{$car->year}}</p>
                           <p><b>Engine Capacity:</b> {{$car->engine_capacity}}cc</p>
