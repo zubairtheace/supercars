@@ -378,22 +378,35 @@
 
 
                         <!--Picture-->
-                        <div class="form-group{{ $errors->has('transmission') ? ' has-error' : '' }}">
-                            <div class="col-md-4 control-label">
-                                {{ Form::label('picture', 'Car Picture') }}
-                            </div>
+                        <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                          <div class="container-fluid">
+                              {!! Form::label(
+                                      'picture',
+                                      'Picture',
+                                      [
+                                          'class' => 'col-md-4 control-label'
+                                      ]
+                                  ); !!}
 
-                            <div class="col-md-6">
-                                {!! Form::file('picture', array('class' => 'image')) !!}
-                            </div>
-
-                            @if ($errors->has('picture'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('picture') }}</strong>
-                                </span>
-                            @endif
-
-                        </div>
+                              <div class="col-md-6">
+                                  {!! Form::file(
+                                        'picture',
+                                        [
+                                            'class' => 'image'
+                                        ]
+                                    ); !!}
+                              </div>
+                          </div>
+                          @if ($errors->has('picture'))
+                          <div class="container-fluid">
+                              <div class="col-md-8 col-md-offset-4">
+                                      <span class="help-block">
+                                          <strong class="text-danger">{{ $errors->first('picture') }}</strong>
+                                      </span>
+                              </div>
+                          </div>
+                          @endif
+                      </div>
 
 
                         <div class="form-group">

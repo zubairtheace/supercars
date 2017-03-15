@@ -32,7 +32,7 @@
                                     {!! Form::select(
                                         'make_id',
                                         App\Make::pluck('name', 'id'),
-                                        $car->id,
+                                        $car->make_id,
                                         [
                                             'placeholder' => 'Select make...',
                                             'class' => 'form-control'

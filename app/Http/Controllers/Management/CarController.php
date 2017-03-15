@@ -8,6 +8,7 @@ use View;
 use App\Car;
 use Image;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CarRequest;
 
 class CarController extends Controller
 {
@@ -38,7 +39,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarRequest $request)
     {
       $this->validate($request, [
           'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -99,7 +100,7 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarRequest $request, $id)
     {
         $car = Car::findOrFail($id);
 
