@@ -12,8 +12,8 @@
                       'route' => 'register',
                       'class' => 'form-horizontal',
                       'role' => 'form',
-                      'method' => 'POST',
-                      ]) !!}
+                      'method' => 'POST'
+                      ]); !!}
 
                     <!--First Name-->
 

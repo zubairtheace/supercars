@@ -28,21 +28,21 @@ class HomeController extends Controller
 
     public function ourcars()
     {
-        return view('our-cars');
+        return view('pages/our-cars');
     }
 
     public function contactus()
     {
-        return view('contact-us');
+        return view('pages/contact-us');
     }
 
     public function frequentlyaskedquestions()
     {
-        return view('frequently-asked-questions');
+        return view('pages/frequently-asked-questions');
     }
 
     public function admin()
     {
-        return view('admin');
+        return view('pages/admin');
     }
 }

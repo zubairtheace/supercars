@@ -378,7 +378,7 @@
 
 
                         <!--Picture-->
-                        <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('picture') ? ' has-error' : '' }}">
                           <div class="container-fluid">
                               {!! Form::label(
                                       'picture',
