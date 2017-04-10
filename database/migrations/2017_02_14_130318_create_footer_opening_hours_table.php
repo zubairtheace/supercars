@@ -21,6 +21,15 @@ class CreateFooterOpeningHoursTable extends Migration
         $table->string('week_end_time');
         $table->timestamps();
       });
+
+      $data = array(
+          "week_day"=>"Monday - Thursday",
+          "week_time"=>"9.00 - 16.00",
+          "week_end_day"=>"Saturdays & Public Holidays",
+          "week_end_time"=>"9.00 - 18.00"
+      );
+
+      DB::table('footer_opening_hours')->insert(array($data));
     }
 
     /**

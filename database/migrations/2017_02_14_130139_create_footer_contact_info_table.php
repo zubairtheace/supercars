@@ -19,6 +19,14 @@ class CreateFooterContactInfoTable extends Migration
         $table->string('email');
         $table->timestamps();
       });
+
+        $data = array(
+            "phone_number"=>"4556677",
+            "email"=>"contact@supercars.com" 
+        );
+
+        DB::table('footer_contact_infos')->insert(array($data));
+
     }
 
     /**

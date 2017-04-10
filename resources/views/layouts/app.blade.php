@@ -44,10 +44,26 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="/home">Home</a></li>
-                        <li><a href="/our-cars">Our Cars</a></li>
+                        <li><a href="/management/car">Our Cars</a></li>
                         <li><a href="/contact-us">Contact Us</a></li>
-                        <li><a href="/frequently-asked-questions">FAQs</a></li>
-                        <li><a href="/admin">Admin</a></li>
+                        <li><a href="/management/faq">FAQs</a></li>
+                        <?php
+                            if (Auth::guest() != true){
+                                if (Auth::user()->user_type == "admin"){
+                                    ?>
+                                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/management/make">Car Makes</a></li>
+                                                <li><a href="/management/color">Car Colors</a></li>
+                                                <li><a href="/footer_contact_info">Contact Informations</a></li>
+                                                <li><a href="/footer_opening_hour">Opening Hours</a></li>
+                                            </ul>
+                                        </li>
+                                    <?php
+                                }
+                            }
+                         ?>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
