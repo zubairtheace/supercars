@@ -24,14 +24,17 @@
                 </div>
                 <div class="panel-footer">
 
-                  <form class="form-horizontal" role="form" method="POST" action="{{ route('footer_opening_hour.destroy', $footer_opening_hour->id) }}">
-                      {{ method_field('DELETE') }}
-                      {{ csrf_field() }}
-                      <button type="submit" class="btn btn-danger">
-                          Delete
-                      </button>
-                  </form>
+                    {!! Form::open([
+                        'route' => ['footer_opening_hour.destroy', $footer_opening_hour->id],
+                        'method' => 'delete',
+                        'class' => 'form-horizontal'
+                    ]) !!}
 
+                    <button type="submit" class="btn btn-danger">
+                        Delete
+                    </button>
+
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

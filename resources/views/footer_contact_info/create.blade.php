@@ -8,63 +8,92 @@
                 <div class="panel-heading">Footer Contact Information</div>
                 <div class="panel-body">
                     {!! Form::open([
-                            'route' => 'footer_contact_info.store',
-                            'class' => 'form-horizontal',
-                            'role' => 'form',
-                            'method' => 'POST'
-                            ]) !!}
+                        'route' => 'footer_contact_info.store',
+                        'class' => 'form-horizontal',
+                        'role' => 'form',
+                        'method' => 'POST'
+                    ]) !!}
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        There were some problems saving the Footer Contact Information.<br />
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
-                    <div class="form-group">
-                        {!! Form::label(
-                                'phone_number',
-                                'Mobile Phone Number',
-                                [
-                                    'class'=>'col-md-4 control-label'
-                                ]
+                        <!--Phone Number-->
+                        <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
+                            <div class="container-fluid">
+                                {!! Form::label(
+                                    'phone_number',
+                                    'Phone Number',
+                                    [
+                                        'class' => 'col-md-4 control-label'
+                                    ]
                                 ); !!}
 
-                        <div class="col-md-3">
-                            {!! Form::number('phone_number',null,[
-                                    'class'=>'form-control',
-                                    'required' => 'required'
-                                ]); !!}
+                            <div class="col-md-4">
+                                {!! Form::number(
+                                    'phone_number',
+                                    old('phone_number'),
+                                    [
+                                        'class'=>'form-control',
+                                        'required' => 'required'
+                                    ]
+                                ); !!}
+                            </div>
+                            </div>
+                            @if ($errors->has('phone_number'))
+                            <div class="container-fluid">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            @endif
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        {!! Form::label('email','E-mail Address',[
-                                'class'=>'col-md-4 control-label'
-                            ]); !!}
+                        <!--email-->
+                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                         <div class="container-fluid">
+                             {!! Form::label(
+                                 'email',
+                                 'E-mail Address',
+                                 [
+                                     'class' => 'col-md-4 control-label'
+                                 ]
+                             ); !!}
 
-                        <div class="col-md-6">
-                            {!! Form::text('email',null,[
-                                    'class'=>'form-control',
-                                    'required' => 'required'
-                                ]); !!}
-                        </div>
-                    </div>
+                             <div class="col-md-6">
+                                 {!! Form::email(
+                                     'email',
+                                     old('email'),
+                                     [
+                                         'class'=>'form-control',
+                                         'required' => 'required'
+                                     ]
+                                 ); !!}
+                             </div>
+                         </div>
+                         @if ($errors->has('email'))
+                         <div class="container-fluid">
+                             <div class="col-md-8 col-md-offset-4">
+                                 <span class="help-block">
+                                     <strong>{{ $errors->first('email') }}</strong>
+                                 </span>
+                             </div>
+                         </div>
+                         @endif
+                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            {!! Form::submit('Save',[
-                                    'class' => 'btn btn-primary'
-                                ]); !!}
+                     <!-- submit button -->
 
-                        </div>
-                    </div>
+                      <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                              {!! Form::submit(
+                                  'Save',
+                                  [
+                                      'class' => 'btn btn-primary'
+                                  ]
+                              ); !!}
+                          </div>
+                      </div>
+
                     {!! Form::close() !!}
-
 
                 </div>
             </div>

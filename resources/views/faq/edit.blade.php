@@ -7,59 +7,95 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Faq</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('faq.update', $faq->id) }}">
-                        {{ method_field('PUT') }}
-                        {{ csrf_field() }}
+                    {!! Form::open([
+                            'route' => ['faq.update', $faq->id],
+                            'class' => 'form-horizontal',
+                            'role' => 'form',
+                            'method' => 'PUT'
+                            ]) !!}
 
-                        <div class="form-group{{ $errors->has('faq') ? ' has-error' : '' }}">
+                        <!--Question-->
+                        <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
+                            <div class="container-fluid">
+                                {!! Form::label(
+                                    'question',
+                                    'Question',
+                                    [
+                                        'class' => 'col-md-4 control-label'
+                                    ]
+                                ); !!}
 
-                          @if ($errors->has('faq'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('faq') }}</strong>
-                              </span>
-                          @endif
-
-                        </div>
-
-
-                        <div class="form-group">
-                            {!! Form::label('question','Question',[
-                                    'class'=>'col-md-4 control-label'
-                                ]); !!}
-
-                            <div class="col-md-6">
-                                {!! Form::textarea('question',$faq->question,[
-                                        'class'=>'form-control',
-                                        'rows'=>'3',
-                                        'required' => 'required'
-                                    ]); !!}
+                                <div class="col-md-6">
+                                    {!! Form::textarea(
+                                        'question',
+                                        $faq->question,
+                                        [
+                                            'class'=>'form-control',
+                                            'required' => 'required',
+                                            'rows' => '3'
+                                        ]
+                                    ); !!}
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            {!! Form::label('answers','Answer',[
-                                    'class'=>'col-md-4 control-label'
-                                ]); !!}
-
-                            <div class="col-md-6">
-                                {!! Form::textarea('answer',$faq->answer,[
-                                        'class'=>'form-control',
-                                        'rows'=>'3',
-                                        'required' => 'required'
-                                    ]); !!}
+                            @if ($errors->has('question'))
+                            <div class="container-fluid">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('question') }}</strong>
+                                    </span>
+                                </div>
                             </div>
+                            @endif
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('Update',[
-                                        'class' => 'btn btn-primary'
-                                    ]); !!}
+                        <!--Answer-->
+                        <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
+                            <div class="container-fluid">
+                                {!! Form::label(
+                                    'answer',
+                                    'Answer',
+                                    [
+                                        'class' => 'col-md-4 control-label'
+                                    ]
+                                ); !!}
 
+                                <div class="col-md-6">
+                                    {!! Form::textarea(
+                                        'answer',
+                                        $faq->answer,
+                                        [
+                                            'class'=>'form-control',
+                                            'required' => 'required',
+                                            'rows' => '3'
+                                        ]
+                                    ); !!}
+                                </div>
                             </div>
+                            @if ($errors->has('answer'))
+                            <div class="container-fluid">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('answer') }}</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            @endif
                         </div>
 
-                    </form>
+                        <!-- submit -->
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    {!! Form::submit(
+                                        'Save',
+                                        [
+                                            'class' => 'btn btn-primary'
+                                        ]
+                                    ); !!}
+
+                                </div>
+                            </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

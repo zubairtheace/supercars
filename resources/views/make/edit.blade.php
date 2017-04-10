@@ -8,45 +8,60 @@
                 <div class="panel-heading">Edit Car Make</div>
                 <div class="panel-body">
                     {!! Form::open([
-                            'route' => ['make.update', $make->id],
-                            'class' => 'form-horizontal',
-                            'role' => 'form',
-                            'method' => 'put'
-                            ]) !!}
+                        'route' => ['make.update', $make->id],
+                        'class' => 'form-horizontal',
+                        'role' => 'form',
+                        'method' => 'put'
+                    ]) !!}
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        There were some problems saving this Make.<br />
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+                        <!-- position name   -->
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="container-fluid">
+                                {!! Form::label(
+                                    'name',
+                                    'Name',
+                                    [
+                                        'class' => 'col-md-4 control-label'
+                                    ]
+                                ); !!}
 
-                    <div class="form-group">
-                        {!! Form::label('name','Car Make',[
-                                'class'=>'col-md-4 control-label'
-                            ]); !!}
-
-                        <div class="col-md-6">
-                            {!! Form::text('name',$make->name,[
-                                    'class'=>'form-control',
-                                    'required' => 'required',
-                                    'autofocus' => 'autofocus'
-                                ]); !!}
+                                <div class="col-md-6">
+                                    {!! Form::text(
+                                        'name',
+                                        $make->name,
+                                        [
+                                            'class'=>'form-control',
+                                            'required' => 'required',
+                                            'autofocus' => 'autofocus'
+                                        ]
+                                    ); !!}
+                                </div>
+                            </div>
+                            @if ($errors->has('name'))
+                            <div class="container-fluid">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            @endif
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            {!! Form::submit('Save',[
-                                    'class' => 'btn btn-primary'
-                                ]); !!}
 
+                        <!-- submit -->
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                {!! Form::submit(
+                                    'Save',
+                                    [
+                                        'class' => 'btn btn-primary'
+                                    ]
+                                ); !!}
+
+                            </div>
                         </div>
-                    </div>
                     {!! Form::close() !!}
 
                 </div>

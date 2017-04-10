@@ -7,29 +7,59 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Car Color</div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => ['color.update', $color->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
 
-                        <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
-                            <label for="color" class="col-md-4 control-label">Color</label>
+                    {!! Form::open(
+                        [
+                            'route' => ['color.update', $color->id],
+                            'method' => 'put',
+                            'class' => 'form-horizontal'
+                        ]) !!}
 
-                            <div class="col-md-6">
-                                <input id="color" type="text" class="form-control" name="name" value="{{ $color->name }}" autofocus>
+                        <!-- Color name   -->
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="container-fluid">
+                                {!! Form::label(
+                                    'name',
+                                    'Name',
+                                    [
+                                        'class' => 'col-md-4 control-label'
+                                    ]
+                                ); !!}
 
-                                @if ($errors->has('name'))
+                                <div class="col-md-6">
+                                    {!! Form::text(
+                                        'name',
+                                        $color->name,
+                                        [
+                                            'class'=>'form-control',
+                                            'required' => 'required',
+                                            'autofocus' => 'autofocus'
+                                        ]
+                                    ); !!}
+                                </div>
+                            </div>
+                            @if ($errors->has('name'))
+                            <div class="container-fluid">
+                                <div class="col-md-8 col-md-offset-4">
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @endif
+                                </div>
                             </div>
+                            @endif
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Update
-                                </button>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            {!! Form::submit(
+                                'Update',
+                                [
+                                    'class' => 'btn btn-primary'
+                                ]
+                            ); !!}
+
                         </div>
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>

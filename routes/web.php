@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 // Route::get('/our-cars', 'HomeController@ourcars');
 //
-// Route::get('/contact-us', 'HomeController@contactus');
+Route::get('/contact-us', 'HomeController@contactus');
 //
 // Route::get('/frequently-asked-questions', 'HomeController@frequentlyaskedquestions');
 
