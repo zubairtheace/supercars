@@ -38,3 +38,5 @@ Route::resource('/management/car', 'Management\CarController');
 Route::resource('/footer_contact_info', 'Footer_contact_infoController');
 
 Route::resource('/footer_opening_hour', 'Footer_opening_hourController');
+
+Route::resource('/user', 'UserController');

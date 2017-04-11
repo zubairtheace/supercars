@@ -56,6 +56,7 @@
                                     ?>
                                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
                                             <ul class="dropdown-menu">
+                                                <li><a href="/user">Users</a></li>
                                                 <li><a href="/management/make">Car Makes</a></li>
                                                 <li><a href="/management/color">Car Colors</a></li>
                                                 <li><a href="/footer_contact_info">Contact Informations</a></li>
