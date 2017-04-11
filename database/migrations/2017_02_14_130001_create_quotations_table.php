@@ -18,10 +18,6 @@ class CreateQuotationsTable extends Migration
         $table->string('title');
         $table->integer('car_id')->unsigned();
         $table->integer('user_id')->unsigned();
-        $table->string('email');
-        $table->string('name');
-        $table->integer('phone_number');
-        $table->string('address');
         $table->text('message');
         $table->foreign('car_id')->references('id')->on('cars');
         $table->foreign('user_id')->references('id')->on('users');

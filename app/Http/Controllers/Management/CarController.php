@@ -45,7 +45,6 @@ class CarController extends Controller
           'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
 
-      //dd($request);
       //image processing
       $image = $request->file('picture');
       $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
@@ -60,6 +59,7 @@ class CarController extends Controller
 
       // dd($input['imagename']);
 
+    //   dd($request);
       $result = Car::create(array_merge($request->all(), ['picture' => $input['imagename']]));
       if ($result) {
         return redirect('management\car')->with('success', 'Car Added');
@@ -78,6 +78,7 @@ class CarController extends Controller
     public function show($id)
     {
         $car = Car::findOrFail($id);
+        // dd($car);
         return view('car.show', compact('car'));
     }
 
