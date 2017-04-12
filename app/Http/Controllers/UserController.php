@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
@@ -76,6 +77,9 @@ class UserController extends Controller
             FROM
             users
 
+            WHERE
+            users.id = "'.$id.'"
+
         '))->first();
         // dd($user);
         return view('user.show', compact('user'));
@@ -114,12 +118,25 @@ class UserController extends Controller
         $user->email = $data['email'];
         $result = $user->save();
 
-        if ($result){
-            return redirect('user')->with('success', 'User Updated');
+        if (Auth::user()->user_type == "registered"){
+
+            if ($result){
+                return redirect()->route('user.show', Auth::user()->id)->with('success', 'Profile Updated');
+            }
+            else{
+                return back()->with('error','Failed to save!');
+            }
         }
         else{
-            return back()->with('error','Failed to save!');
+
+            if ($result){
+                return redirect('user')->with('success', 'User Updated');
+            }
+            else{
+                return back()->with('error','Failed to save!');
+            }
         }
+
     }
 
     /**

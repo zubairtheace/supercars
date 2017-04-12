@@ -57,6 +57,7 @@
                                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/user">Users</a></li>
+                                                <li><a href="/quotation">Quotations</a></li>
                                                 <li><a href="/management/make">Car Makes</a></li>
                                                 <li><a href="/management/color">Car Colors</a></li>
                                                 <li><a href="/footer_contact_info">Contact Informations</a></li>
@@ -83,6 +84,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('user.show', Auth::user()->id) }}">View Profile</a></li>
+                                    <li><a href="{{ route('user.edit', Auth::user()->id) }}">Edit Profile</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -94,6 +97,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
                         @endif
@@ -102,9 +106,9 @@
             </div>
         </nav>
 
-        @if (session('info')) <div class="alert alert-success"> {{ session('info') }} </div> @endif
+        @if (session('info')) <div class="alert alert-info"> {{ session('info') }} </div> @endif
         @if (session('success')) <div class="alert alert-success"> {{ session('success') }} </div> @endif
-        @if (session('error')) <div class="alert alert-success"> {{ session('error') }} </div> @endif
+        @if (session('error')) <div class="alert alert-danger"> {{ session('error') }} </div> @endif
 
         @yield('content')
     </div>
