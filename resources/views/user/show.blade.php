@@ -5,10 +5,22 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1 custom-padding">
             <div class="panel panel-default">
-
-                <div class="panel-heading"><a href="/user">Users</a> <span class="fa fa-chevron-right"></span> {{ $user->first_name }} {{ $user->last_name }}
-                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary btn-sm pull-right">Edit </a>
-                </div>
+                <?php
+                    if (Auth::guest() != true){
+                        if (Auth::user()->user_type == "admin"){
+                            ?>
+                            <div class="panel-heading"><a href="/user">Users</a> <span class="fa fa-chevron-right"></span> {{ $user->first_name }} {{ $user->last_name }}
+                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary btn-sm pull-right">Edit </a>
+                            </div>
+                            <?php
+                        }
+                        else{
+                            ?>
+                            <div class="panel-heading">My Profile</div>
+                            <?php
+                        }
+                    }
+                ?>
 
                 <div class="panel-body">
                     <div>
@@ -30,10 +42,18 @@
                                     <td>{{ $user->last_name }}</td>
                                 </tr>
 
-                                <tr>
-                                    <td><div class="text-right"><strong>User Type</strong></div></td>
-                                    <td>{{ $user->user_type }}</td>
-                                </tr>
+                                <?php
+                                    if (Auth::guest() != true){
+                                        if (Auth::user()->user_type == "admin"){
+                                            ?>
+                                                <tr>
+                                                    <td><div class="text-right"><strong>User Type</strong></div></td>
+                                                    <td>{{ $user->user_type }}</td>
+                                                </tr>
+                                            <?php
+                                        }
+                                    }
+                                 ?>
 
                                 <tr>
                                     <td><div class="text-right"><strong>National Identity Card Number</strong></div></td>
@@ -69,15 +89,23 @@
                         </table>
                     </div>
                 </div>
-                <div class="panel-footer">
-                    {!! Form::open([
-                        'route' => ['user.destroy', $user->id],
-                        'method' => 'delete',
-                        'class' => 'form-horizontal'
-                    ]) !!}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    {!! Form::close() !!}
-                </div>
+                <?php
+                    if (Auth::guest() != true){
+                        if (Auth::user()->user_type == "admin"){
+                            ?>
+                                <div class="panel-footer">
+                                    {!! Form::open([
+                                        'route' => ['user.destroy', $user->id],
+                                        'method' => 'delete',
+                                        'class' => 'form-horizontal'
+                                    ]) !!}
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    {!! Form::close() !!}
+                                </div>
+                            <?php
+                        }
+                    }
+                 ?>
             </div>
         </div>
     </div>

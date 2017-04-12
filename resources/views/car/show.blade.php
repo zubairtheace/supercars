@@ -34,6 +34,21 @@
                         <p><b>Mileage:</b> {{$car->mileage}} Miles</p>
                         <p class="lead"><b>Price: </b>Rs {{$car->price}}</p>
                         <a href="{{ url('/management/car/quotation', $car->id) }}" class="btn btn-primary">Request Quotation</a>
+                        <?php
+                        if (Auth::guest() != true){
+                            if (Auth::user()->user_type == "admin" || Auth::user()->user_type == "registered"){
+                                ?>
+                                    <a href="/quotation/create/{{$car->id}}" class="btn btn-primary btn-sm ">Request Quotation</a>
+                                <?php
+                            }
+                        }
+                        else {
+                            ?>
+                                <a href="/login" class="btn btn-primary">Login to Request Quotation</a>
+                            <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
                 <?php
