@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use View;
 use App\Car;
 use Image;
+use Auth;
+use Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CarRequest;
 
@@ -150,5 +152,25 @@ class CarController extends Controller
         else{
           return back()->with('error','Failed to delete!');
         }
+    }
+
+
+    public function quotation($id)
+    {
+        $car = Car::findOrFail($id);
+
+        $title = "Car Quotation"; // can also appen car name here
+        $name = Auth::user()->first_name.' '.Auth::user()->last_name;
+        $email = 'umar.mw@gmail.com'; //Auth::user()->email;
+
+        Mail::send('email.quotation', ['title' => $title, 'content' => $car], function ($message) use ( $email, $name, $title)
+        {
+            $message->from('support@supercars.io', 'Supercars Customer Service');
+            $message->to($email, $name);
+            $message->subject($title);
+        });
+
+        return back()->with('info','Please check your email!');
+
     }
 }

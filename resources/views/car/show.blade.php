@@ -33,7 +33,7 @@
                         <p><b>Transmission:</b> {{$car->transmission}}</p>
                         <p><b>Mileage:</b> {{$car->mileage}} Miles</p>
                         <p class="lead"><b>Price: </b>Rs {{$car->price}}</p>
-                        <button  class="btn btn-primary">Request Quotation</button>
+                        <a href="{{ url('/management/car/quotation', $car->id) }}" class="btn btn-primary">Request Quotation</a>
                     </div>
                 </div>
                 <?php
@@ -48,7 +48,7 @@
                             <?php
                         }
                     }
-                 ?>                   
+                 ?>
             </div>
         </div>
     </div>

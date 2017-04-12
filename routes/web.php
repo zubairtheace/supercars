@@ -34,6 +34,7 @@ Route::resource('/management/make', 'Management\MakeController');
 Route::resource('/management/faq', 'Management\FaqController');
 
 Route::resource('/management/car', 'Management\CarController');
+Route::get('/management/car/quotation/{id}', 'Management\CarController@quotation');
 
 Route::resource('/footer_contact_info', 'Footer_contact_infoController');
 
