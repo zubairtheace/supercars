@@ -5,27 +5,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1 custom-padding">
             <div class="panel panel-default">
-                <div class="panel-heading">Our Cars
-                    <?php
-                        if (Auth::guest() != true){
-                            if (Auth::user()->user_type == "admin"){
-                                ?>
-                                    <a href="{{ route('car.create') }}" class="btn btn-primary btn-sm pull-right">Add </a>
-                                <?php
-                            }
-                        }
-                     ?>
-                </div>
 
-                <div class="search panel-body text-center">
-                    {!! Form::open([
-                            'url' => 'car/search',
-                            'class' => 'form-horizontal',
-                            'role' => 'form',
-                            'method' => 'POST'
-                            ]) !!}
-                        <input type="text" name="search" placeholder="Search a Car...">
-                    {!! Form::close() !!}
+                <div class="panel-heading">
+                    <a href="/management/car">Our Cars</a> <span class="fa fa-chevron-right"></span> Search Results for "{{ $searchTerm }}"
                 </div>
 
                 <div class="panel-body">
@@ -34,7 +16,7 @@
                         <tr>
                             <td>
                                 <div class="panel-heading col-md-12">
-                                    <b class="lead">{{$car->make->name}} {{$car->model}}  </b><small class="text-uppercase mark"><em> ({{$car->type}})</em></small>
+                                    <b class="lead">{{$car->make}} {{$car->model}}  </b><small class="text-uppercase mark"><em> ({{$car->type}})</em></small>
                                     <div class="pull-right">
                                         <a href="{{ route('car.show', $car->id) }}" class="btn btn-primary btn-sm">View </a>
                                         <?php

@@ -3,7 +3,7 @@
 @section('content')
 
 <section id="supercars-slider">
-    <div class="bs-example">
+    <div class="bs-example animated fadeInLeft">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Carousel indicators -->
             <ol class="carousel-indicators">
@@ -41,7 +41,7 @@
     <div class="container">
         <div class="home-row">
             <div >
-                <img class="col-md-12 col-xs-12" src="custom/images/logo.png" alt="client-1">
+                <img class="col-md-12 col-xs-12 animated fadeInRight" src="custom/images/logo.png" alt="client-1">
             </div>
             <h3 class="text-center">Dealer in New and Reconditionned Cars</h3>
             <p class="text-center"><a href="/management/car" class="btn btn-common btn-lg">Browse Our Cars Now</a></p>

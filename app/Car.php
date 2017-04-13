@@ -26,6 +26,6 @@ class Car extends Model
   }
 
   public function make(){
-    return $this->hasOne('App\Make', 'id');
+    return $this->hasOne('App\Make', 'id', 'make_id');
   }
 }

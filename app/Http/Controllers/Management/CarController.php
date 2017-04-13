@@ -11,6 +11,7 @@ use Auth;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CarRequest;
+use DB;
 
 class CarController extends Controller
 {
@@ -30,6 +31,26 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->search;
+        $cars = Car::
+        join('makes', 'cars.make_id', '=', 'makes.id')
+            ->where('model', 'like', '%' . $searchTerm . '%')
+            ->orWhere('makes.name', 'like', '%' . $searchTerm . '%')
+            ->paginate(5, array('cars.id AS id',
+                'cars.model AS model',
+                'cars.type AS type',
+                'cars.engine_capacity AS engine_capacity',
+                'cars.transmission AS transmission',
+                'cars.price AS price',
+                'cars.picture AS picture',
+                'makes.name AS make'))
+        ;
+        return view('car.search', compact('cars', 'searchTerm'));
+    }
+
     public function create()
     {
         return view('car.create');
