@@ -4,6 +4,8 @@
 <h1>{!! $title !!}</h1>
 <h2>{!! $content->name !!}</h2>
 <div>
+    <!-- Car Make -->
+
   <p> this is an example of a vertical table </p>
   <table class="table">
       <tbody>

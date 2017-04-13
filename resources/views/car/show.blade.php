@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1 custom-padding">
             <div class="panel panel-default">
                 <div class="panel-heading"><a href="/management/car">Our Cars</a> <span class="fa fa-chevron-right"></span> {{$car->make->name}} {{$car->model}}
                     <?php
@@ -33,7 +33,7 @@
                         <p><b>Transmission:</b> {{$car->transmission}}</p>
                         <p><b>Mileage:</b> {{$car->mileage}} Miles</p>
                         <p class="lead"><b>Price: </b>Rs {{$car->price}}</p>
-                        <a href="{{ url('/management/car/quotation', $car->id) }}" class="btn btn-primary">Request Quotation</a>
+                        <!-- <a href="{{ url('/management/car/quotation', $car->id) }}" class="btn btn-primary">Request Quotation</a> -->
                         <?php
                         if (Auth::guest() != true){
                             if (Auth::user()->user_type == "admin" || Auth::user()->user_type == "registered"){

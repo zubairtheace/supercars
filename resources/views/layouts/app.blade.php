@@ -10,11 +10,25 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{{ asset('custom/images/icon.ico') }}}">
+
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Custom fonts -->
     <link href="{{ asset('custom/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link href="{{ asset('css/custom/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom/responsive.css') }}" rel="stylesheet">
+
+    <!-- Extras css -->
+    <link href="{{ asset('css/custom/extras/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom/extras/lightbox.css') }}" rel="stylesheet">
+
+    <!-- jQuery Load -->
+    <link href="{{ asset('js/custom/jquery-min.js') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -25,7 +39,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" id="back-to-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -48,7 +62,6 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/home">Home</a></li>
                         <li><a href="/management/car">Our Cars</a></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
                         <li><a href="/management/faq">FAQs</a></li>
                         <?php
                             if (Auth::guest() != true){
@@ -113,7 +126,23 @@
         @yield('content')
     </div>
 
+    <div id="copyright">
+    <div class="container">
+    <!-- <div class="col-md-10"><p>© Recruitment Hut 2017 All right reserved. Design & Developed by The Team</p></div> -->
+    <div class="col-md-2-offset-10">
+        <span class="to-top pull-right"><a href="#back-to-top"><i class="fa fa-angle-up fa-2x"></i></a></span>
+        </div>
+    </div>
+    </div>
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+
+    <!-- Smooth Scroll -->
+    <script src="{{ asset('js/custom/smooth-scroll.js') }}"></script>
+    <script src="{{ asset('js/custom/lightbox.min.js') }}"></script>
+
+    <!-- All JS plugin Triggers -->
+    <script src="{{ asset('js/custom/main.js') }}"></script>
 </body>
 </html>

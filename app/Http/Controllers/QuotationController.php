@@ -9,6 +9,8 @@ use View;
 use App\Quotation;
 use Auth;
 use DB;
+use App\Car;
+use Mail;
 
 class QuotationController extends Controller
 {
@@ -80,6 +82,20 @@ class QuotationController extends Controller
                 'car_id' => $request['car_id'],
                 'message' => $request['message']
             ]);
+
+            $car = Car::findOrFail($request['car_id']);
+
+            $title = "Car Quotation"; // can also appen car name here
+            $name = Auth::user()->first_name.' '.Auth::user()->last_name;
+            $email = 'tofy.zubair@gmail.com'; //Auth::user()->email;
+
+            Mail::send('email.quotation', ['title' => $title, 'content' => $car], function ($message) use ( $email, $name, $title)
+            {
+                $message->from('support@supercars.io', 'Supercars Customer Service');
+                $message->to($email, $name);
+                $message->subject($title);
+            });
+
             if ($quotation){
                 return redirect('management/car')->with('success', 'You have Successfully generated a Quotation.');
             }

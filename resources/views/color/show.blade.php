@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1 custom-padding">
             <div class="panel panel-default">
                 <div class="panel-heading"><a href="/management/color">Colors</a> <span class="fa fa-chevron-right"></span> {{ $color->name }}
                     <a href="{{ route('color.edit', $color->id) }}" class="btn btn-primary btn-sm pull-right">Edit </a>
