@@ -156,9 +156,11 @@
                 </div>
 
                 <div class="contact-info">
-                    <p><i class="fa fa-map-marker"></i> Port Louis, Mauritius</p>
-                    <p><i class="fa fa-envelope"></i> info@supercars.com</p>
+                    <!-- <p><i class="fa fa-map-marker"></i> Port Louis, Mauritius</p>
+                    <p><i class="fa fa-envelope"></i> info@supercars.com</p> -->
+                    <iframe width="100%" height="280" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJVVVVlehafCERl6LO1KPE9Gw&key=AIzaSyCqIJ4givSzPlLBUu3xxlc-q4ei_FPadxs" allowfullscreen></iframe>
                 </div>
+
 
             </div>
         </div>

@@ -18,11 +18,12 @@ class CreateFooterContactInfoTable extends Migration
         $table->integer('phone_number');
         $table->string('email');
         $table->timestamps();
+        $table->softDeletes();
       });
 
         $data = array(
             "phone_number"=>"4556677",
-            "email"=>"contact@supercars.com" 
+            "email"=>"contact@supercars.com"
         );
 
         DB::table('footer_contact_infos')->insert(array($data));

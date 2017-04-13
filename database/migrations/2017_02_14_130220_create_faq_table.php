@@ -18,6 +18,7 @@ class CreateFaqTable extends Migration
         $table->text('question');
         $table->text('answer');
         $table->timestamps();
+        $table->softDeletes();
       });
 
       $data1 = array(

@@ -20,6 +20,7 @@ class CreateFooterOpeningHoursTable extends Migration
         $table->string('week_end_day');
         $table->string('week_end_time');
         $table->timestamps();
+        $table->softDeletes();
       });
 
       $data = array(

@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Quotation extends Model
 {
+    use SoftDeletes;
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -22,4 +25,7 @@ class Quotation extends Model
     public function car(){
         return $this->hasOne('App\Car', 'id', 'car_id');
     }
+
+    protected $dates = ['deleted_at'];
+
 }

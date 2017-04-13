@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Make extends Model
 {
-  public $timestamps = false;
+    use SoftDeletes;
 
-  protected $fillable = [
-      'name'
-  ];
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    protected $dates = ['deleted_at'];
+
 }

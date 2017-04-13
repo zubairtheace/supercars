@@ -28,6 +28,7 @@ class CreateCarsTable extends Migration
         $table->foreign('make_id')->references('id')->on('makes');
         $table->foreign('color_id')->references('id')->on('colors');
         $table->timestamps();
+        $table->softDeletes();
       });
 
       $data1 = array(

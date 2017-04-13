@@ -93,7 +93,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->first_name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -144,5 +144,11 @@
 
     <!-- All JS plugin Triggers -->
     <script src="{{ asset('js/custom/main.js') }}"></script>
+
+    <!-- Google Maps Script -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqIJ4givSzPlLBUu3xxlc-q4ei_FPadxscallback=initMap">
+    </script>
+
 </body>
 </html>
