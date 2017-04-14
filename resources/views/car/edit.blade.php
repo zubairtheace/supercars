@@ -126,6 +126,7 @@
 
                                 <div class="container-fluid">
 
+
                                     <div class="col-md-4 control-label">
                                         {!! Form::label(
                                             'type',
@@ -133,29 +134,67 @@
                                         ); !!}
                                     </div>
 
-                                    <div class="col-md-3">
-                                        {!! Form::label(
-                                            'new',
-                                            'New'
-                                        ); !!}
+                                    <?php
+                                        if (($car->type)=='new'){
+                                            ?>
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'new',
+                                                        'New'
+                                                    ); !!}
 
-                                        {!! Form::radio(
-                                            'type',
-                                            'new'
-                                        ); !!}
-                                    </div>
+                                                    {!! Form::radio(
+                                                        'type',
+                                                        'new',
+                                                        true
+                                                    ); !!}
+                                                </div>
 
-                                    <div class="col-md-3">
-                                        {!! Form::label(
-                                            'reconditionned',
-                                            'Reconditionned'
-                                        ); !!}
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'reconditionned',
+                                                        'Reconditionned'
+                                                    ); !!}
 
-                                        {!! Form::radio(
-                                            'type',
-                                            'reconditionned'
-                                        ); !!}
-                                    </div>
+                                                    {!! Form::radio(
+                                                        'type',
+                                                        'reconditionned'
+                                                    ); !!}
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+
+                                    <?php
+                                        if (($car->type)=='reconditionned'){
+                                            ?>
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'new',
+                                                        'New'
+                                                    ); !!}
+
+                                                    {!! Form::radio(
+                                                        'type',
+                                                        'new'
+                                                    ); !!}
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'reconditionned',
+                                                        'Reconditionned'
+                                                    ); !!}
+
+                                                    {!! Form::radio(
+                                                        'type',
+                                                        'reconditionned',
+                                                        true
+                                                    ); !!}
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
                                 </div>
 
                                 @if ($errors->has('type'))
@@ -259,29 +298,69 @@
                                         ); !!}
                                     </div>
 
-                                    <div class="col-md-3">
-                                        {!! Form::label(
-                                            'manual',
-                                            'Manual'
-                                        ); !!}
+                                    <?php
+                                        if (($car->transmission)=='manual'){
+                                            ?>
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'manual',
+                                                        'Manual'
+                                                    ); !!}
 
-                                        {!! Form::radio(
-                                            'transmission',
-                                            'manual'
-                                        ); !!}
-                                    </div>
+                                                    {!! Form::radio(
+                                                        'transmission',
+                                                        'manual',
+                                                        true
+                                                    ); !!}
+                                                </div>
 
-                                    <div class="col-md-3">
-                                        {!! Form::label(
-                                            'automatic',
-                                            'Automatic'
-                                        ); !!}
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'automatic',
+                                                        'Automatic'
+                                                    ); !!}
 
-                                        {!! Form::radio(
-                                            'transmission',
-                                            'automatic'
-                                        ); !!}
-                                    </div>
+                                                    {!! Form::radio(
+                                                        'transmission',
+                                                        'automatic'
+                                                    ); !!}
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+
+                                    <?php
+                                        if (($car->transmission)=='automatic'){
+                                            ?>
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'manual',
+                                                        'Manual'
+                                                    ); !!}
+
+                                                    {!! Form::radio(
+                                                        'transmission',
+                                                        'manual'
+                                                    ); !!}
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    {!! Form::label(
+                                                        'automatic',
+                                                        'Automatic'
+                                                    ); !!}
+
+                                                    {!! Form::radio(
+                                                        'transmission',
+                                                        'automatic',
+                                                        true
+                                                    ); !!}
+                                                </div>
+                                            <?php
+                                        }
+                                    ?>
+
+
                                 </div>
 
                                 @if ($errors->has('transmission'))

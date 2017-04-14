@@ -91,29 +91,68 @@
                                       'User Type'
                                   ); !!}
                               </div>
-                              <div class="col-md-3">
-                                  {!! Form::label(
-                                      'registered',
-                                      'Regular User'
-                                  ); !!}
 
-                                  {!! Form::radio(
-                                      'user_type',
-                                      'registered',
-                                      true
-                                  ); !!}
-                              </div>
-                              <div class="col-md-2">
-                                  {!! Form::label(
-                                      'admin',
-                                      'Admin'
-                                  ); !!}
+                              <?php
+                                  if (($user->user_type)=='registered'){
+                                      ?>
+                                          <div class="col-md-3">
+                                              {!! Form::label(
+                                                  'registered',
+                                                  'Regular User'
+                                              ); !!}
 
-                                  {!! Form::radio(
-                                      'user_type',
-                                      'admin'
-                                  ); !!}
-                              </div>
+                                              {!! Form::radio(
+                                                  'user_type',
+                                                  'registered',
+                                                  true
+                                              ); !!}
+                                          </div>
+                                          <div class="col-md-2">
+                                              {!! Form::label(
+                                                  'admin',
+                                                  'Admin'
+                                              ); !!}
+
+                                              {!! Form::radio(
+                                                  'user_type',
+                                                  'admin'
+                                              ); !!}
+                                          </div>
+                                      <?php
+                                  }
+                              ?>
+
+                              <?php
+                                  if (($user->user_type)=='admin'){
+                                      ?>
+                                          <div class="col-md-3">
+                                              {!! Form::label(
+                                                  'registered',
+                                                  'Regular User'
+                                              ); !!}
+
+                                              {!! Form::radio(
+                                                  'user_type',
+                                                  'registered'
+                                              ); !!}
+                                          </div>
+                                          <div class="col-md-2">
+                                              {!! Form::label(
+                                                  'admin',
+                                                  'Admin'
+                                              ); !!}
+
+                                              {!! Form::radio(
+                                                  'user_type',
+                                                  'admin',
+                                                  true
+                                              ); !!}
+                                          </div>
+                                      <?php
+                                  }
+                              ?>
+
+
                             </div>
                             @if ($errors->has('user_type_id'))
                             <div class="container-fluid">
@@ -168,29 +207,66 @@
                                         'Gender'
                                     ); !!}
                                 </div>
-                                <div class="col-md-2">
-                                    {!! Form::label(
-                                        'male',
-                                        'Male'
-                                    ); !!}
+                                <?php
+                                    if (($user->gender)=='male'){
+                                        ?>
+                                            <div class="col-md-2">
+                                                {!! Form::label(
+                                                    'male',
+                                                    'Male'
+                                                ); !!}
 
-                                    {!! Form::radio(
-                                        'gender',
-                                        'male',
-                                        true
-                                    ); !!}
-                                </div>
-                                <div class="col-md-2">
-                                    {!! Form::label(
-                                        'female',
-                                        'Female'
-                                    ); !!}
+                                                {!! Form::radio(
+                                                    'gender',
+                                                    'male',
+                                                    true
+                                                ); !!}
+                                            </div>
+                                            <div class="col-md-2">
+                                                {!! Form::label(
+                                                    'female',
+                                                    'Female'
+                                                ); !!}
 
-                                    {!! Form::radio(
-                                        'gender',
-                                        'female'
-                                    ); !!}
-                                </div>
+                                                {!! Form::radio(
+                                                    'gender',
+                                                    'female'
+                                                ); !!}
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+
+                                <?php
+                                    if (($user->gender)=='female'){
+                                        ?>
+                                            <div class="col-md-2">
+                                                {!! Form::label(
+                                                    'male',
+                                                    'Male'
+                                                ); !!}
+
+                                                {!! Form::radio(
+                                                    'gender',
+                                                    'male'
+                                                ); !!}
+                                            </div>
+                                            <div class="col-md-2">
+                                                {!! Form::label(
+                                                    'female',
+                                                    'Female'
+                                                ); !!}
+
+                                                {!! Form::radio(
+                                                    'gender',
+                                                    'female',
+                                                    true
+                                                ); !!}
+                                            </div>
+                                        <?php
+                                    }
+                                ?>
+
                             </div>
                             @if ($errors->has('gender'))
                             <div class="container-fluid">
