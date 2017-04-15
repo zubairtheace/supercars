@@ -119,9 +119,17 @@
             </div>
         </nav>
 
-        @if (session('info')) <div class="alert alert-info"> {{ session('info') }} </div> @endif
-        @if (session('success')) <div class="alert alert-success"> {{ session('success') }} </div> @endif
-        @if (session('error')) <div class="alert alert-danger"> {{ session('error') }} </div> @endif
+        @if (session('info') || session('success') || session('error'))
+          <div class="container">
+            <div class="row">
+              <div class="col-md-offset-1 col-md-10 custom-padding">
+                @if (session('info')) <div class="alert alert-info"> {{ session('info') }} </div> @endif
+                @if (session('success')) <div class="alert alert-success"> {{ session('success') }} </div> @endif
+                @if (session('error')) <div class="alert alert-danger"> {{ session('error') }} </div> @endif
+              </div>
+            </div>
+          </div>
+        @endif
 
         @yield('content')
     </div>
