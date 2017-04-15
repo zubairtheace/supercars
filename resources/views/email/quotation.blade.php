@@ -2,36 +2,45 @@
 <head></head>
 <body>
 <h1>{!! $title !!}</h1>
-<h2>{!! $content->name !!}</h2>
 <div>
-    <!-- Car Make -->
 
-  <p> this is an example of a vertical table </p>
   <table class="table">
       <tbody>
           <tr>
-            <th>Row</th>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
+            <th align="left">Name</th>
+              <td>{!! $content->make->name !!}</td>
           </tr>
           <tr>
-            <th>First Name</th>
-              <td>John</td>
-              <td>Peter</td>
-              <td>John</td>
+            <th align="left">Color</th>
+              <td>{!! $content->color->name !!}</td>
           </tr>
           <tr>
-            <th>Last Name</th>
-              <td>Carter</td>
-              <td>Parker</td>
-              <td>Rambo</td>
+            <th align="left">Model</th>
+              <td>{!! $content->model !!}</td>
           </tr>
-        <tr>
-            <th>Email</th>
-              <td>johncarter@mail.com</td>
-              <td>peterparker@mail.com</td>
-              <td>johnrambo@mail.com</td>
+          <tr>
+            <th>Type</th>
+              <td>{!! $content->type !!}</td>
+          </tr>
+          <tr>
+            <th>Year</th>
+              <td>{!! $content->year !!}</td>
+          </tr>
+          <tr>
+            <th>Engine Capacity</th>
+              <td>{!! $content->engine_capacity !!}</td>
+          </tr>
+          <tr>
+            <th>Transmission</th>
+              <td>{!! $content->transmission !!}</td>
+          </tr>
+          <tr>
+            <th>Milenage</th>
+              <td>{!! $content->mileage !!}</td>
+          </tr>
+          <tr>
+            <th>Price</th>
+              <td>{!! $content->price !!}</td>
           </tr>
       </tbody>
   </table>
