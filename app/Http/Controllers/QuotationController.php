@@ -87,7 +87,8 @@ class QuotationController extends Controller
 
             $title = "Car Quotation"; // can also appen car name here
             $name = Auth::user()->first_name.' '.Auth::user()->last_name;
-            $email = 'tofy.zubair@gmail.com'; //Auth::user()->email;
+            // $email = 'tofy.zubair@gmail.com';
+            $email = Auth::user()->email;
 
             Mail::send('email.quotation', ['title' => $title, 'content' => $car], function ($message) use ( $email, $name, $title)
             {
