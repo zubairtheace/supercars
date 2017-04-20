@@ -19,6 +19,8 @@
                 <div class="panel-body">
                     <div class=" text-centers ">
                         <img width="100%" class="img-rounded img-responsive" src="/library/images/{{$car->picture}}" />
+                        <br>
+                        <p><b><a href="https://www.google.mu/search?q={{$car->make->name}}-{{$car->model}}&espv=2&source=lnms&tbm=isch" target="_blank">View More Pictures</a></b></p>
                     <hr>
                     </div>
                     <div class="col-md-6">

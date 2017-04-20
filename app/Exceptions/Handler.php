@@ -42,10 +42,21 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
+
+    //  original whoops
+
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
     }
+
+        // public function render($request, Exception $e)
+        // {
+        //    if (!$this->isHttpException($e)) $e = new \Symfony\Component\HttpKernel\Exception\HttpException(500);
+        //
+        //    return parent::render($request, $e);
+        // }
+
 
     /**
      * Convert an authentication exception into an unauthenticated response.
