@@ -135,20 +135,22 @@
     </div>
 
     <div id="copyright">
-    <div class="container">
-    <!-- <div class="col-md-10"><p>© Recruitment Hut 2017 All right reserved. Design & Developed by The Team</p></div> -->
-    <div class="col-md-2-offset-10">
-        <span class="to-top pull-right"><a href="#back-to-top"><i class="fa fa-angle-up fa-2x"></i></a></span>
+        <div class="container">
+            <!-- <div class="col-md-10"><p>© Recruitment Hut 2017 All right reserved. Design & Developed by The Team</p></div> -->
+            <div class="col-md-2-offset-10">
+                <span class="to-top pull-right"><a href="#back-to-top"><i class="fa fa-angle-up fa-2x"></i></a></span>
+            </div>
+
         </div>
-    </div>
     </div>
 
     <!-- Scripts -->
+
     <script src="/js/app.js"></script>
 
     <!-- Smooth Scroll -->
     <script src="{{ asset('js/custom/smooth-scroll.js') }}"></script>
-    <script src="{{ asset('js/custom/lightbox.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/custom/lightbox.min.js') }}"></script> -->
 
     <!-- All JS plugin Triggers -->
     <script src="{{ asset('js/custom/main.js') }}"></script>
